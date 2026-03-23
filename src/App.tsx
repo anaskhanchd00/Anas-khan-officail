@@ -343,10 +343,10 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col" dir={isRtl ? 'rtl' : 'ltr'}>
-      {/* Navigation - Detached Floating Header */}
-      <div className="fixed top-0 left-0 right-0 z-50 p-4 pointer-events-none">
-        <nav className={`container mx-auto pointer-events-auto transition-all duration-300 rounded-2xl ${isScrolled ? 'bg-white/90 backdrop-blur-md shadow-lg py-3' : 'bg-white/10 backdrop-blur-sm py-5 border border-white/20'}`}>
-          <div className="flex items-center justify-between px-6">
+      {/* Navigation - Integrated Header */}
+      <div className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'p-4 pointer-events-none' : 'p-0 pointer-events-auto'}`}>
+        <nav className={`transition-all duration-300 ${isScrolled ? 'container mx-auto pointer-events-auto rounded-2xl bg-white/90 backdrop-blur-md shadow-lg py-3 px-6' : 'w-full bg-black/20 backdrop-blur-sm py-5 border-b border-white/10 px-8'}`}>
+          <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <div className="bg-primary p-2 rounded-lg">
                 <Truck className="size-6 text-white" />
@@ -431,12 +431,12 @@ const App: React.FC = () => {
       </div>
 
       {/* Hero Section */}
-      <section id="home" className="relative h-screen flex items-center pt-20">
+      <section id="home" className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1600518464441-9154a4dea21b?q=80&w=2070&auto=format&fit=crop" 
             alt="Moving Truck" 
-            className="w-full h-full object-cover brightness-50"
+            className="w-full h-full object-cover brightness-50 scale-105"
             referrerPolicy="no-referrer"
           />
         </div>
