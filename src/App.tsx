@@ -156,6 +156,11 @@ const App: React.FC = () => {
           success: "Message sent! We'll contact you soon.",
           error: "Failed to send. Please call us directly."
         }
+      },
+      urgentSection: {
+        title: "Urgent Moving Request?",
+        subtitle: "We are available 24/7 across all Emirates in the UAE including Dubai, Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, and Fujairah.",
+        cta: "Call Now: 0528102191"
       }
     },
     ar: {
@@ -269,6 +274,11 @@ const App: React.FC = () => {
           success: "تم الإرسال! سنتصل بك قريباً.",
           error: "فشل الإرسال. يرجى الاتصال بنا مباشرة."
         }
+      },
+      urgentSection: {
+        title: "طلب نقل عاجل؟",
+        subtitle: "نحن متواجدون على مدار الساعة طوال أيام الأسبوع في جميع الإمارات بما في ذلك دبي، أبو ظبي، الشارقة، عجمان، رأس الخيمة، والفجيرة.",
+        cta: "اتصل الآن: 0528102191"
       }
     }
   };
@@ -784,6 +794,31 @@ const App: React.FC = () => {
         </div>
       </section>
 
+      {/* Urgent Call Section */}
+      <section className="bg-accent py-16 text-white overflow-hidden relative">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-64 h-64 bg-white rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full translate-x-1/2 translate-y-1/2 blur-3xl"></div>
+        </div>
+        <div className="container relative z-10">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+            <div className={isRtl ? 'md:text-right' : ''}>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">{current.urgentSection.title}</h2>
+              <p className="text-white/90 text-lg max-w-2xl">{current.urgentSection.subtitle}</p>
+            </div>
+            <motion.a 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              href="tel:+971528102191" 
+              className="bg-white text-accent px-8 py-4 rounded-xl font-bold text-xl flex items-center gap-3 shadow-xl hover:bg-gray-100 transition-colors"
+            >
+              <Phone className="size-6 animate-bounce" />
+              {current.urgentSection.cta}
+            </motion.a>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="bg-gray-900 text-white pt-20 pb-10">
         <div className="container">
@@ -848,6 +883,25 @@ const App: React.FC = () => {
           </div>
         </div>
       </footer>
+
+      {/* Floating Call Button */}
+      <div className={`fixed bottom-8 ${isRtl ? 'left-8' : 'right-8'} z-50 flex flex-col gap-4`}>
+        <motion.a
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          href="tel:+971528102191"
+          className="bg-accent text-white p-4 rounded-full shadow-2xl flex items-center justify-center group relative"
+          title={current.callNow}
+        >
+          <div className="absolute -left-32 bg-white text-primary px-3 py-1 rounded shadow-lg text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap hidden md:block">
+            {current.callNow}
+          </div>
+          <Phone className="size-8" />
+          <span className="absolute inset-0 rounded-full bg-accent animate-ping opacity-20"></span>
+        </motion.a>
+      </div>
     </div>
   );
 };
