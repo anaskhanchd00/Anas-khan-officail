@@ -69,12 +69,12 @@ const App: React.FC = () => {
         title: "Coverage Across UAE",
         subtitle: "We serve all emirates across UAE with comprehensive coverage",
         items: [
-          { city: "Dubai", desc: "Professional service available", icon: "🏙️" },
-          { city: "Abu Dhabi", desc: "Professional service available", icon: "🏛️" },
-          { city: "Sharjah", desc: "Professional service available", icon: "🌆" },
-          { city: "Ajman", desc: "Professional service available", icon: "🏘️" },
-          { city: "Ras Al Khaimah", desc: "Professional service available", icon: "⛰️" },
-          { city: "Fujairah", desc: "Professional service available", icon: "🌊" }
+          { city: "Dubai", desc: "Professional service available", icon: "🏙️", image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1000&auto=format&fit=crop" },
+          { city: "Abu Dhabi", desc: "Professional service available", icon: "🏛️", image: "https://images.unsplash.com/photo-1580674285054-bed31e145f59?q=80&w=1000&auto=format&fit=crop" },
+          { city: "Sharjah", desc: "Professional service available", icon: "🌆", image: "https://images.unsplash.com/photo-1578895101408-1a36b834405b?q=80&w=1000&auto=format&fit=crop" },
+          { city: "Ajman", desc: "Professional service available", icon: "🏘️", image: "https://images.unsplash.com/photo-1582650625119-3a31f8fa2699?q=80&w=1000&auto=format&fit=crop" },
+          { city: "Ras Al Khaimah", desc: "Professional service available", icon: "⛰️", image: "https://images.unsplash.com/photo-1597659840241-37e2b9c2f55f?q=80&w=1000&auto=format&fit=crop" },
+          { city: "Fujairah", desc: "Professional service available", icon: "🌊", image: "https://images.unsplash.com/photo-1544161513-0179fe746fd5?q=80&w=1000&auto=format&fit=crop" }
         ]
       },
       services: {
@@ -182,12 +182,12 @@ const App: React.FC = () => {
         title: "تغطية في جميع أنحاء الإمارات",
         subtitle: "نحن نخدم جميع الإمارات في جميع أنحاء الدولة بتغطية شاملة",
         items: [
-          { city: "دبي", desc: "خدمة احترافية متوفرة", icon: "🏙️" },
-          { city: "أبو ظبي", desc: "خدمة احترافية متوفرة", icon: "🏛️" },
-          { city: "الشارقة", desc: "خدمة احترافية متوفرة", icon: "🌆" },
-          { city: "عجمان", desc: "خدمة احترافية متوفرة", icon: "🏘️" },
-          { city: "رأس الخيمة", desc: "خدمة احترافية متوفرة", icon: "⛰️" },
-          { city: "الفجيرة", desc: "خدمة احترافية متوفرة", icon: "🌊" }
+          { city: "دبي", desc: "خدمة احترافية متوفرة", icon: "🏙️", image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1000&auto=format&fit=crop" },
+          { city: "أبو ظبي", desc: "خدمة احترافية متوفرة", icon: "🏛️", image: "https://images.unsplash.com/photo-1580674285054-bed31e145f59?q=80&w=1000&auto=format&fit=crop" },
+          { city: "الشارقة", desc: "خدمة احترافية متوفرة", icon: "🌆", image: "https://images.unsplash.com/photo-1578895101408-1a36b834405b?q=80&w=1000&auto=format&fit=crop" },
+          { city: "عجمان", desc: "خدمة احترافية متوفرة", icon: "🏘️", image: "https://images.unsplash.com/photo-1582650625119-3a31f8fa2699?q=80&w=1000&auto=format&fit=crop" },
+          { city: "رأس الخيمة", desc: "خدمة احترافية متوفرة", icon: "⛰️", image: "https://images.unsplash.com/photo-1597659840241-37e2b9c2f55f?q=80&w=1000&auto=format&fit=crop" },
+          { city: "الفجيرة", desc: "خدمة احترافية متوفرة", icon: "🌊", image: "https://images.unsplash.com/photo-1544161513-0179fe746fd5?q=80&w=1000&auto=format&fit=crop" }
         ]
       },
       services: {
@@ -550,7 +550,7 @@ const App: React.FC = () => {
       </section>
 
       {/* Coverage Section */}
-      <section id="coverage" className="py-24 bg-primary/5">
+      <section id="coverage" className="py-24 bg-white">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-4xl mb-4">{current.coverage.title}</h2>
@@ -562,13 +562,29 @@ const App: React.FC = () => {
             {current.coverage.items.map((item, index) => (
               <motion.div 
                 key={index}
-                whileHover={{ scale: 1.05 }}
-                className="bg-white p-8 rounded-2xl shadow-lg border border-primary/10 flex items-center gap-6"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ y: -10 }}
+                className="relative h-80 rounded-3xl overflow-hidden group shadow-xl"
               >
-                <div className="text-4xl">{item.icon}</div>
-                <div>
-                  <h3 className="text-xl font-bold text-primary mb-1">{item.city}</h3>
-                  <p className="text-gray-500 text-sm">{item.desc}</p>
+                <img 
+                  src={item.image} 
+                  alt={item.city} 
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent"></div>
+                <div className={`absolute bottom-0 left-0 right-0 p-8 text-white ${isRtl ? 'text-right' : 'text-left'}`}>
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="text-3xl">{item.icon}</span>
+                    <h3 className="text-2xl font-bold text-white">{item.city}</h3>
+                  </div>
+                  <p className="text-gray-200 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {item.desc}
+                  </p>
+                  <div className="mt-4 h-1 w-12 bg-accent rounded-full transform origin-left transition-transform duration-300 group-hover:scale-x-150"></div>
                 </div>
               </motion.div>
             ))}
