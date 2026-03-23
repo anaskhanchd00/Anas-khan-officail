@@ -32,8 +32,8 @@ export const handler: Handler = async (event, context) => {
     });
 
     const mailOptions = {
-      from: `"${name}" <${process.env.SMTP_USER}>`,
-      to: process.env.CONTACT_RECIPIENT || "anaskhan52650@gmail.com",
+      from: `"${name}" <${process.env.SMTP_USER || "anaskhan52650@gmail.com"}>`,
+      to: "anaskhan52650@gmail.com",
       replyTo: email,
       subject: `New Moving Quote Request from ${name}`,
       text: `
@@ -64,16 +64,18 @@ export const handler: Handler = async (event, context) => {
       await transporter.sendMail(mailOptions);
       return {
         statusCode: 200,
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ success: true, message: "Email sent successfully." }),
       };
     } else {
       console.warn("SMTP credentials missing in Netlify environment.");
       return {
         statusCode: 200,
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ 
           success: true, 
-          message: "SMTP credentials missing. Form data logged to server console.",
-          warning: "Please configure SMTP_USER and SMTP_PASS in Netlify environment variables."
+          message: "Form submitted successfully (Simulation mode).",
+          warning: "Please configure SMTP_USER and SMTP_PASS in Netlify environment variables to receive real emails."
         }),
       };
     }
@@ -81,6 +83,7 @@ export const handler: Handler = async (event, context) => {
     console.error("Error sending email:", error);
     return {
       statusCode: 500,
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ error: "Failed to send email. Please try again later." }),
     };
   }
