@@ -82,7 +82,7 @@ const App: React.FC = () => {
         subtitle: "We offer a comprehensive range of moving and storage solutions designed to make your transition as smooth as possible.",
         items: [
           { title: "Residential Moving", desc: "Stress-free home relocation services tailored to your needs, ensuring your belongings reach safely." },
-          { title: "International Moving", desc: "Seamless global relocation with expert handling of customs and logistics across borders." },
+          { title: "Villa & Apartment Moving", desc: "Expert relocation services for villas and apartments, ensuring a smooth transition to your new home." },
           { title: "Commercial Moving", desc: "Efficient office and business relocation to minimize downtime and ensure business continuity." },
           { title: "Packing Services", desc: "Professional packing using high-quality materials to protect your items during transit." },
           { title: "Storage Solutions", desc: "Secure, climate-controlled storage facilities for short-term or long-term requirements." },
@@ -113,7 +113,7 @@ const App: React.FC = () => {
         items: [
           { name: "Sarah Johnson", role: "Home Owner", content: "Swift Movers made my relocation so easy. Their team was professional, punctual, and handled everything with care." },
           { name: "Ahmed Al-Fayed", role: "Business Manager", content: "We moved our entire office over the weekend with zero issues. Highly recommend their commercial services." },
-          { name: "Michael Chen", role: "Expat", content: "Moving internationally is stressful, but Swift Movers handled all the paperwork and logistics perfectly." }
+          { name: "Michael Chen", role: "Villa Owner", content: "Moving my villa was stressful, but TAREEQ SAREE MOVERS handled everything perfectly and with great care." }
         ]
       },
       contact: {
@@ -126,7 +126,7 @@ const App: React.FC = () => {
           serviceType: "Service Type",
           serviceOptions: [
             "Residential Moving",
-            "International Moving",
+            "Villa & Apartment Moving",
             "Commercial Moving",
             "Packing Services",
             "Storage Solutions",
@@ -200,7 +200,7 @@ const App: React.FC = () => {
         subtitle: "نحن نقدم مجموعة شاملة من حلول النقل والتخزين المصممة لجعل انتقالك سلسًا قدر الإمكان.",
         items: [
           { title: "نقل سكني", desc: "خدمات نقل منزلية خالية من الإجهاد مصممة خصيصًا لاحتياجاتك، مما يضمن وصول ممتلكاتك بأمان." },
-          { title: "نقل دولي", desc: "نقل عالمي سلس مع معالجة خبراء للجمارك والخدمات اللوجستية عبر الحدود." },
+          { title: "نقل الفلل والشقق", desc: "خدمات نقل متخصصة للفلل والشقق، مما يضمن انتقالاً سلساً إلى منزلك الجديد." },
           { title: "نقل تجاري", desc: "نقل مكاتب وأعمال فعال لتقليل وقت التوقف وضمان استمرارية العمل." },
           { title: "خدمات التغليف", desc: "تغليف احترافي باستخدام مواد عالية الجودة لحماية أغراضك أثناء النقل." },
           { title: "حلول التخزين", desc: "مرافق تخجبن آمنة ومتحكم في مناخها للمتطلبات قصيرة أو طويلة الأجل." },
@@ -231,7 +231,7 @@ const App: React.FC = () => {
         items: [
           { name: "سارة جونسون", role: "صاحبة منزل", content: "جعلت شركة طريق سريع انتقالي سهلاً للغاية. كان فريقهم محترفًا ومنضبطًا وتعاملوا مع كل شيء بعناية." },
           { name: "أحمد الفايد", role: "مدير أعمال", content: "نقلنا مكتبنا بالكامل خلال عطلة نهاية الأسبوع دون أي مشاكل. نوصي بشدة بخدماتهم التجارية." },
-          { name: "مايكل تشين", role: "مغترب", content: "النقل الدولي مرهق، لكن طريق سريع تعاملت مع جميع الأوراق والخدمات اللوجستية بشكل مثالي." }
+          { name: "مايكل تشين", role: "صاحب فيلا", content: "كان نقل فيلتي مرهقاً، لكن طريق سريع تعاملت مع كل شيء بشكل مثالي وبمنتهى العناية." }
         ]
       },
       contact: {
@@ -244,7 +244,7 @@ const App: React.FC = () => {
           serviceType: "نوع الخدمة",
           serviceOptions: [
             "نقل سكني",
-            "نقل دولي",
+            "نقل الفلل والشقق",
             "نقل تجاري",
             "خدمات التغليف",
             "حلول التخزين",
