@@ -3,6 +3,13 @@
  * Rifaq Movers functions and definitions
  */
 
+/**
+ * Recommended Plugins:
+ * 1. WP Mail SMTP - For reliable email delivery from the contact form.
+ * 2. Advanced Custom Fields (Optional) - If you want to make content editable via admin.
+ * 3. Loco Translate (Optional) - For managing translations easily.
+ */
+
 function rifaq_movers_setup() {
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
@@ -13,8 +20,8 @@ function rifaq_movers_setup() {
 add_action('after_setup_theme', 'rifaq_movers_setup');
 
 function rifaq_movers_scripts() {
-    // Enqueue Tailwind CSS via CDN
-    wp_enqueue_style('tailwind', 'https://cdn.tailwindcss.com', array(), '3.4.1');
+    // Enqueue Tailwind CSS via CDN (Script, not Style)
+    wp_enqueue_script('tailwind', 'https://cdn.tailwindcss.com', array(), '3.4.1', false);
     
     // Enqueue Theme Styles
     wp_enqueue_style('rifaq-movers-style', get_stylesheet_uri());
@@ -74,15 +81,20 @@ function rifaq_movers_tailwind_config() {
             theme: {
                 extend: {
                     colors: {
-                        primary: '#1a365d',
-                        secondary: '#2d3748',
-                        accent: '#f6ad55',
-                        foreground: '#1a202c',
+                        primary: '#1f3a5f',
+                        accent: '#f59e0b',
+                        background: '#ffffff',
+                        foreground: '#1f2937',
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
                         serif: ['Playfair Display', 'serif'],
                     },
+                    borderRadius: {
+                        'xl': '0.65rem',
+                        '2xl': '1rem',
+                        '3xl': '1.5rem',
+                    }
                 }
             }
         }

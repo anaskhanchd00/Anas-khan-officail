@@ -7,10 +7,10 @@
                         <div class="bg-accent p-2 rounded-lg">
                             <i data-lucide="truck" class="size-6 text-white"></i>
                         </div>
-                        <span class="text-xl font-serif font-bold text-white"><?php echo get_bloginfo('name'); ?></span>
+                        <span class="text-xl font-serif font-bold text-white"><?php echo is_rtl() ? 'طريق سريع لنقل الأثاث' : 'TAREEQ SAREE MOVERS'; ?></span>
                     </div>
                     <p class="text-gray-400 leading-relaxed">
-                        TAREEQ SAREE MOVERS PACKERS FURNITURE TRANSFER L.L.C provides premium moving and storage solutions across the UAE since 2012.
+                        <?php echo is_rtl() ? 'تقدم شركة طريق سريع لنقل الأثاث وتغليف ونقل الأثاث ذ.م.م حلول نقل وتخزين متميزة في جميع أنحاء الإمارات منذ عام 2012.' : 'TAREEQ SAREE MOVERS PACKERS FURNITURE TRANSFER L.L.C provides premium moving and storage solutions across the UAE since 2012.'; ?>
                     </p>
                     <div class="flex gap-4">
                         <a href="#" class="bg-white/10 p-3 rounded-xl hover:bg-accent transition-colors"><i data-lucide="facebook" class="size-5"></i></a>
@@ -20,47 +20,83 @@
                     </div>
                 </div>
                 <div>
-                    <h4 class="text-xl font-bold mb-6">Quick Links</h4>
+                    <h4 class="text-xl font-bold mb-6"><?php echo is_rtl() ? 'روابط سريعة' : 'Quick Links'; ?></h4>
                     <ul class="space-y-4 text-gray-400">
-                        <li><a href="#home" class="hover:text-accent transition-colors">Home</a></li>
-                        <li><a href="#services" class="hover:text-accent transition-colors">Services</a></li>
-                        <li><a href="#about" class="hover:text-accent transition-colors">About</a></li>
-                        <li><a href="#coverage" class="hover:text-accent transition-colors">Service Area</a></li>
-                        <li><a href="#contact" class="hover:text-accent transition-colors">Contact</a></li>
+                        <?php
+                        $footer_links = is_rtl() ? array(
+                            'home' => 'الرئيسية',
+                            'services' => 'خدماتنا',
+                            'about' => 'من نحن',
+                            'coverage' => 'مناطق الخدمة',
+                            'testimonials' => 'آراء العملاء',
+                            'contact' => 'اتصل بنا'
+                        ) : array(
+                            'home' => 'Home',
+                            'services' => 'Services',
+                            'about' => 'About',
+                            'coverage' => 'Service Area',
+                            'testimonials' => 'Testimonials',
+                            'contact' => 'Contact'
+                        );
+                        foreach ($footer_links as $id => $label) : ?>
+                            <li><a href="#<?php echo $id; ?>" class="hover:text-accent transition-colors"><?php echo $label; ?></a></li>
+                        <?php endforeach; ?>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-xl font-bold mb-6">Our Services</h4>
+                    <h4 class="text-xl font-bold mb-6"><?php echo is_rtl() ? 'خدماتنا' : 'Our Services'; ?></h4>
                     <ul class="space-y-4 text-gray-400">
-                        <li>Residential Moving</li>
-                        <li>Villa & Apartment Moving</li>
-                        <li>Commercial Moving</li>
-                        <li>Packing Services</li>
-                        <li>Storage Solutions</li>
+                        <?php
+                        $footer_services = is_rtl() ? array(
+                            'نقل سكني',
+                            'نقل الفلل والشقق',
+                            'نقل تجاري',
+                            'خدمات التغليف',
+                            'حلول التخزين'
+                        ) : array(
+                            'Residential Moving',
+                            'Villa & Apartment Moving',
+                            'Commercial Moving',
+                            'Packing Services',
+                            'Storage Solutions'
+                        );
+                        foreach ($footer_services as $service) : ?>
+                            <li><?php echo $service; ?></li>
+                        <?php endforeach; ?>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-xl font-bold mb-6">Newsletter</h4>
-                    <p class="text-gray-400 mb-6">Subscribe to get the latest news and moving tips.</p>
+                    <h4 class="text-xl font-bold mb-6"><?php echo is_rtl() ? 'النشرة الإخبارية' : 'Newsletter'; ?></h4>
+                    <p class="text-gray-400 mb-6"><?php echo is_rtl() ? 'اشترك للحصول على آخر الأخبار ونصائح النقل.' : 'Subscribe to get the latest news and moving tips.'; ?></p>
                     <form class="space-y-4">
-                        <input type="email" placeholder="Email Address" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 focus:border-accent outline-none transition-all">
-                        <button class="bg-accent text-white w-full py-3 rounded-xl font-bold hover:bg-accent/90 transition-all">Subscribe</button>
+                        <input type="email" placeholder="<?php echo is_rtl() ? 'البريد الإلكتروني' : 'Email Address'; ?>" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 focus:border-accent outline-none transition-all">
+                        <button class="bg-accent text-white w-full py-3 rounded-xl font-bold hover:bg-accent/90 transition-all"><?php echo is_rtl() ? 'اشتراك' : 'Subscribe'; ?></button>
                     </form>
                 </div>
             </div>
             <div class="mt-20 pt-8 border-t border-white/10 text-center text-gray-500">
-                <p>&copy; <?php echo date('Y'); ?> <?php echo get_bloginfo('name'); ?>. All rights reserved.</p>
+                <p>&copy; <?php echo date('Y'); ?> <?php echo is_rtl() ? 'طريق سريع لنقل الأثاث' : 'TAREEQ SAREE MOVERS'; ?>. <?php echo is_rtl() ? 'جميع الحقوق محفوظة.' : 'All rights reserved.'; ?></p>
             </div>
         </div>
     </footer>
 
     <!-- Floating Call Button -->
-    <a href="tel:+971528102191" class="fixed bottom-8 right-8 z-50 bg-accent text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-all group">
+    <a href="tel:+971528102191" class="fixed bottom-8 <?php echo is_rtl() ? 'left-8' : 'right-8'; ?> z-50 bg-accent text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-all group">
         <i data-lucide="phone" class="size-8"></i>
-        <span class="absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-primary text-white px-4 py-2 rounded-xl text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-            Call Now: 0528102191
+        <span class="absolute <?php echo is_rtl() ? 'left-full ml-4' : 'right-full mr-4'; ?> top-1/2 -translate-y-1/2 bg-primary text-white px-4 py-2 rounded-xl text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+            <?php echo is_rtl() ? 'اتصل الآن: 0528102191' : 'Call Now: 0528102191'; ?>
         </span>
     </a>
+
+    <!-- Side Call Button (Desktop Only) -->
+    <div class="fixed top-1/2 -translate-y-1/2 <?php echo is_rtl() ? 'left-0' : 'right-0'; ?> z-50 hidden lg:block">
+        <a href="tel:+971528102191" class="bg-accent text-white py-4 px-2 rounded-l-xl flex flex-col items-center gap-2 shadow-xl hover:pl-4 transition-all group">
+            <i data-lucide="phone" class="size-6"></i>
+            <span class="[writing-mode:vertical-rl] font-bold tracking-widest uppercase text-xs">
+                <?php echo is_rtl() ? 'اتصل الآن' : 'CALL NOW'; ?>
+            </span>
+        </a>
+    </div>
 
     <?php wp_footer(); ?>
 </body>
