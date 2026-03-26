@@ -81,9 +81,9 @@
     </footer>
 
     <!-- Floating Call Button -->
-    <a href="tel:+971528102191" class="fixed bottom-8 <?php echo is_rtl() ? 'left-8' : 'right-8'; ?> z-50 bg-accent text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-all group">
-        <i data-lucide="phone" class="size-8"></i>
-        <span class="absolute <?php echo is_rtl() ? 'left-full ml-4' : 'right-full mr-4'; ?> top-1/2 -translate-y-1/2 bg-primary text-white px-4 py-2 rounded-xl text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+    <a href="tel:+971528102191" class="fixed bottom-6 <?php echo is_rtl() ? 'left-6' : 'right-6'; ?> z-50 bg-accent text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-all group md:bottom-8 md:<?php echo is_rtl() ? 'left-8' : 'right-8'; ?>">
+        <i data-lucide="phone" class="size-7 md:size-8"></i>
+        <span class="absolute <?php echo is_rtl() ? 'left-full ml-4' : 'right-full mr-4'; ?> top-1/2 -translate-y-1/2 bg-primary text-white px-4 py-2 rounded-xl text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap hidden md:block">
             <?php echo is_rtl() ? 'اتصل الآن: 0528102191' : 'Call Now: 0528102191'; ?>
         </span>
     </a>
