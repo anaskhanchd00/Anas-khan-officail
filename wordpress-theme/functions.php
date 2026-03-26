@@ -90,3 +90,36 @@ function rifaq_movers_tailwind_config() {
     <?php
 }
 add_action('wp_head', 'rifaq_movers_tailwind_config');
+
+/**
+ * Handle Contact Form Submission
+ */
+function handle_contact_form_submit() {
+    if (isset($_POST['name']) && isset($_POST['phone'])) {
+        $name = sanitize_text_field($_POST['name']);
+        $phone = sanitize_text_field($_POST['phone']);
+        $email = sanitize_email($_POST['email']);
+        $service = sanitize_text_field($_POST['serviceType']);
+        $message = sanitize_textarea_field($_POST['message']);
+
+        $to = 'anaskhan52650@gmail.com';
+        $subject = 'New Moving Quote Request from ' . $name;
+        
+        $body = "New Quote Request Details:\n\n";
+        $body .= "Name: $name\n";
+        $body .= "Phone: $phone\n";
+        $body .= "Email: $email\n";
+        $body .= "Service Type: $service\n";
+        $body .= "Message: $message\n";
+
+        $headers = array('Content-Type: text/plain; charset=UTF-8', 'Reply-To: ' . $name . ' <' . $email . '>');
+
+        wp_mail($to, $subject, $body, $headers);
+
+        // Redirect back with success message
+        wp_redirect(home_url('/?status=success#contact'));
+        exit;
+    }
+}
+add_action('admin_post_contact_form_submit', 'handle_contact_form_submit');
+add_action('admin_post_nopriv_contact_form_submit', 'handle_contact_form_submit');
