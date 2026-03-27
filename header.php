@@ -16,7 +16,7 @@
     <?php wp_head(); ?>
 </head>
 <?php
-$is_rtl_manual = is_rtl();
+$is_rtl_manual = false; // Default to English (LTR)
 if (isset($_COOKIE['tareeq_lang'])) {
     $is_rtl_manual = ($_COOKIE['tareeq_lang'] === 'ar');
 }

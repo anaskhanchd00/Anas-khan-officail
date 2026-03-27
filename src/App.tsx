@@ -134,9 +134,9 @@ const App: React.FC = () => {
       },
       testimonials: {
         title: "What Our Clients Say",
-        subtitle: "Don't just take our word for it. Here's what our customers have to say about their experience with SwiftMovers.",
+        subtitle: "Don't just take our word for it. Here's what our customers have to say about their experience with TAREEQ SAREE MOVERS.",
         items: [
-          { name: "Sarah Johnson", role: "Home Owner", content: "Swift Movers made my relocation so easy. Their team was professional, punctual, and handled everything with care." },
+          { name: "Sarah Johnson", role: "Home Owner", content: "TAREEQ SAREE MOVERS made my relocation so easy. Their team was professional, punctual, and handled everything with care." },
           { name: "Ahmed Al-Fayed", role: "Business Manager", content: "We moved our entire office over the weekend with zero issues. Highly recommend their commercial services." },
           { name: "Michael Chen", role: "Villa Owner", content: "Moving my villa was stressful, but TAREEQ SAREE MOVERS handled everything perfectly and with great care." }
         ]

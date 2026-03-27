@@ -2,11 +2,9 @@
 
 <?php
 // Robust language detection
-$lang = 'en';
+$lang = 'en'; // Default to English
 if (isset($_COOKIE['tareeq_lang'])) {
     $lang = ($_COOKIE['tareeq_lang'] === 'ar') ? 'ar' : 'en';
-} elseif (is_rtl()) {
-    $lang = 'ar';
 }
 
 $is_rtl = ($lang === 'ar');
@@ -15,47 +13,47 @@ $is_rtl = ($lang === 'ar');
 $t = array(
     'en' => array(
         'hero' => array(
-            'title' => __('TAREEQ SAREE MOVERS', 'rifaq-movers'),
-            'accent' => __('in UAE', 'rifaq-movers'),
+            'title' => __('Your Trusted Partner in', 'rifaq-movers'),
+            'accent' => __('Seamless Relocation', 'rifaq-movers'),
             'locations' => __('Serving Dubai, Abu Dhabi & All Emirates', 'rifaq-movers'),
-            'desc' => __('Safe, reliable, and affordable moving services for your home and office. We handle your belongings with care.', 'rifaq-movers'),
+            'desc' => __('TAREEQ SAREE MOVERS PACKERS FURNITURE TRANSFER L.L.C provides professional, reliable, and efficient moving services across the UAE.', 'rifaq-movers'),
             'call' => __('Call Now: 0528102191', 'rifaq-movers'),
             'cta' => __('View Services', 'rifaq-movers'),
         ),
         'services' => array(
-            'title' => __('Our Premium Services', 'rifaq-movers'),
-            'subtitle' => __('We offer a comprehensive range of moving and packing solutions tailored to your specific needs.', 'rifaq-movers'),
+            'title' => __('Our Professional Services', 'rifaq-movers'),
+            'subtitle' => __('We offer a comprehensive range of moving and storage solutions designed to make your transition as smooth as possible.', 'rifaq-movers'),
             'learn_more' => __('Learn More', 'rifaq-movers'),
             'items' => array(
                 array(
                     "icon" => "home",
                     "title" => __("Residential Moving", 'rifaq-movers'),
-                    "desc" => __("Hassle-free home relocation services with expert packing and careful handling of your household items.", 'rifaq-movers')
+                    "desc" => __("Stress-free home relocation services tailored to your needs, ensuring your belongings reach safely.", 'rifaq-movers')
                 ),
                 array(
                     "icon" => "building-2",
-                    "title" => __("Office Relocation", 'rifaq-movers'),
-                    "desc" => __("Efficient commercial moving solutions to minimize downtime and ensure a smooth transition for your business.", 'rifaq-movers')
+                    "title" => __("Villa & Apartment Moving", 'rifaq-movers'),
+                    "desc" => __("Expert relocation services for villas and apartments, ensuring a smooth transition to your new home.", 'rifaq-movers')
                 ),
                 array(
                     "icon" => "package-check",
-                    "title" => __("Expert Packing", 'rifaq-movers'),
-                    "desc" => __("High-quality packing materials and techniques to protect your fragile and valuable belongings during transit.", 'rifaq-movers')
+                    "title" => __("Commercial Moving", 'rifaq-movers'),
+                    "desc" => __("Efficient office and business relocation to minimize downtime and ensure business continuity.", 'rifaq-movers')
                 ),
                 array(
                     "icon" => "truck",
-                    "title" => __("Local & Long Distance", 'rifaq-movers'),
-                    "desc" => __("Whether you're moving across the street or across the Emirates, we provide reliable transportation.", 'rifaq-movers')
+                    "title" => __("Packing Services", 'rifaq-movers'),
+                    "desc" => __("Professional packing using high-quality materials to protect your items during transit.", 'rifaq-movers')
                 ),
                 array(
                     "icon" => "warehouse",
                     "title" => __("Storage Solutions", 'rifaq-movers'),
-                    "desc" => __("Secure and climate-controlled storage facilities for your short-term or long-term storage needs.", 'rifaq-movers')
+                    "desc" => __("Secure, climate-controlled storage facilities for short-term or long-term requirements.", 'rifaq-movers')
                 ),
                 array(
                     "icon" => "wrench",
                     "title" => __("Furniture Assembly", 'rifaq-movers'),
-                    "desc" => __("Professional dismantling and reassembling of all types of furniture by our skilled technicians.", 'rifaq-movers')
+                    "desc" => __("Expert assembly and disassembly of all types of furniture for a complete moving experience.", 'rifaq-movers')
                 )
             )
         ),
@@ -66,8 +64,8 @@ $t = array(
             'satisfaction' => __('Satisfaction', 'rifaq-movers'),
         ),
         'about' => array(
-            'title' => __('Your Trusted Moving Partner in UAE', 'rifaq-movers'),
-            'desc' => __('With over a decade of experience, TAREEQ SAREE MOVERS has established itself as a leader in the UAE moving industry. Our commitment to excellence and customer satisfaction drives everything we do.', 'rifaq-movers'),
+            'title' => __('Why Choose TAREEQ SAREE MOVERS?', 'rifaq-movers'),
+            'desc' => __('With over a decade of experience in the UAE, we have perfected the art of relocation. TAREEQ SAREE MOVERS & PACKERS L.L.C is trained to handle everything from delicate antiques to large office equipment with the utmost care.', 'rifaq-movers'),
             'rating' => __('Average Customer Rating', 'rifaq-movers'),
             'points' => array(
                 __('Licensed & Insured Moving Company', 'rifaq-movers'),
@@ -95,19 +93,19 @@ $t = array(
             'subtitle' => __('Read honest reviews from our satisfied customers across the UAE.', 'rifaq-movers'),
             'items' => array(
                 array(
-                    "name" => __("Ahmed Hassan", 'rifaq-movers'),
-                    "role" => __("Villa Owner, Dubai", 'rifaq-movers'),
-                    "content" => __("Excellent service! The team was professional, punctual, and handled my furniture with great care. Highly recommended for villa moving.", 'rifaq-movers')
+                    "name" => __("Sarah Johnson", 'rifaq-movers'),
+                    "role" => __("Home Owner", 'rifaq-movers'),
+                    "content" => __("TAREEQ SAREE MOVERS made my relocation so easy. Their team was professional, punctual, and handled everything with care.", 'rifaq-movers')
                 ),
                 array(
-                    "name" => __("Sarah Miller", 'rifaq-movers'),
-                    "role" => __("Apartment Resident, Abu Dhabi", 'rifaq-movers'),
-                    "content" => __("TAREEQ SAREE MOVERS made my apartment move so easy. They packed everything perfectly and nothing was damaged. Great value for money.", 'rifaq-movers')
+                    "name" => __("Ahmed Al-Fayed", 'rifaq-movers'),
+                    "role" => __("Business Manager", 'rifaq-movers'),
+                    "content" => __("We moved our entire office over the weekend with zero issues. Highly recommend their commercial services.", 'rifaq-movers')
                 ),
                 array(
-                    "name" => __("Mohammed Ali", 'rifaq-movers'),
-                    "role" => __("Business Owner, Sharjah", 'rifaq-movers'),
-                    "content" => __("We used them for our office relocation. They were very efficient and we were back to work in no time. Professional team.", 'rifaq-movers')
+                    "name" => __("Michael Chen", 'rifaq-movers'),
+                    "role" => __("Villa Owner", 'rifaq-movers'),
+                    "content" => __("Moving my villa was stressful, but TAREEQ SAREE MOVERS handled everything perfectly and with great care.", 'rifaq-movers')
                 )
             )
         ),
@@ -117,7 +115,7 @@ $t = array(
             'call_us' => __('Call Us', 'rifaq-movers'),
             'email_us' => __('Email Us', 'rifaq-movers'),
             'office' => __('Our Office', 'rifaq-movers'),
-            'address' => __('Al Barsha, Dubai, UAE', 'rifaq-movers'),
+            'address' => __('Business Bay, Dubai, UAE', 'rifaq-movers'),
             'labels' => array(
                 'name' => __('Full Name', 'rifaq-movers'),
                 'phone' => __('Phone Number', 'rifaq-movers'),
@@ -138,54 +136,54 @@ $t = array(
             )
         ),
         'urgent' => array(
-            'title' => __('Need an Urgent Move?', 'rifaq-movers'),
+            'title' => __('Urgent Moving Request?', 'rifaq-movers'),
             'subtitle' => __('We are available 24/7 for emergency moving services across the UAE.', 'rifaq-movers'),
             'call' => __('Call Now: 0528102191', 'rifaq-movers'),
         )
     ),
     'ar' => array(
         'hero' => array(
-            'title' => __('شركة طريق سريع لنقل الأثاث والتغليف', 'rifaq-movers'),
-            'accent' => __('في الإمارات', 'rifaq-movers'),
+            'title' => __('شريكك الموثوق في', 'rifaq-movers'),
+            'accent' => __('النقل السلس', 'rifaq-movers'),
             'locations' => __('نخدم دبي، أبو ظبي وجميع الإمارات', 'rifaq-movers'),
-            'desc' => __('خدمات نقل آمنة وموثوقة وبأسعار معقولة لمنزلك ومكتبك. نحن نتعامل مع ممتلكاتك بعناية فائقة.', 'rifaq-movers'),
+            'desc' => __('تقدم شركة طريق سريع لنقل وتغليف الأثاث ذ.م.م خدمات نقل احترافية وموثوقة وفعالة في جميع أنحاء الإمارات العربية المتحدة.', 'rifaq-movers'),
             'call' => __('اتصل الآن: 0528102191', 'rifaq-movers'),
             'cta' => __('عرض الخدمات', 'rifaq-movers'),
         ),
         'services' => array(
-            'title' => __('خدماتنا المتميزة', 'rifaq-movers'),
-            'subtitle' => __('نحن نقدم مجموعة شاملة من حلول النقل والتغليف المصممة خصيصاً لتلبية احتياجاتك.', 'rifaq-movers'),
+            'title' => __('خدماتنا الاحترافية', 'rifaq-movers'),
+            'subtitle' => __('نحن نقدم مجموعة شاملة من حلول النقل والتخزين المصممة لجعل انتقالك سلسًا قدر الإمكان.', 'rifaq-movers'),
             'learn_more' => __('تعرف على المزيد', 'rifaq-movers'),
             'items' => array(
                 array(
                     "icon" => "home",
                     "title" => __("نقل سكني", 'rifaq-movers'),
-                    "desc" => __("خدمات نقل منزلية خالية من المتاعب مع تغليف خبير وتعامل دقيق مع أغراضك المنزلية.", 'rifaq-movers')
+                    "desc" => __("خدمات نقل منزلية خالية من الإجهاد مصممة خصيصًا لاحتياجاتك، مما يضمن وصول ممتلكاتك بأمان.", 'rifaq-movers')
                 ),
                 array(
                     "icon" => "building-2",
-                    "title" => __("نقل المكاتب", 'rifaq-movers'),
-                    "desc" => __("حلول نقل تجارية فعالة لتقليل وقت التوقف وضمان انتقال سلس لعملك.", 'rifaq-movers')
+                    "title" => __("نقل الفلل والشقق", 'rifaq-movers'),
+                    "desc" => __("خدمات نقل متخصصة للفلل والشقق، مما يضمن انتقالاً سلساً إلى منزلك الجديد.", 'rifaq-movers')
                 ),
                 array(
                     "icon" => "package-check",
-                    "title" => __("تغليف خبير", 'rifaq-movers'),
-                    "desc" => __("مواد وتقنيات تغليف عالية الجودة لحماية ممتلكاتك الهشة والثمينة أثناء النقل.", 'rifaq-movers')
+                    "title" => __("نقل تجاري", 'rifaq-movers'),
+                    "desc" => __("نقل مكاتب وأعمال فعال لتقليل وقت التوقف وضمان استمرارية العمل.", 'rifaq-movers')
                 ),
                 array(
                     "icon" => "truck",
-                    "title" => __("نقل محلي وبعيد", 'rifaq-movers'),
-                    "desc" => __("سواء كنت تنتقل عبر الشارع أو عبر الإمارات، فنحن نوفر لك وسيلة نقل موثوقة.", 'rifaq-movers')
+                    "title" => __("خدمات التغليف", 'rifaq-movers'),
+                    "desc" => __("تغليف احترافي باستخدام مواد عالية الجودة لحماية أغراضك أثناء النقل.", 'rifaq-movers')
                 ),
                 array(
                     "icon" => "warehouse",
                     "title" => __("حلول التخزين", 'rifaq-movers'),
-                    "desc" => __("مرافق تخزين آمنة ومتحكم في مناخها لاحتياجات التخزين قصيرة أو طويلة الأجل.", 'rifaq-movers')
+                    "desc" => __("مرافق تخزين آمنة ومتحكم في مناخها للمتطلبات قصيرة أو طويلة الأجل.", 'rifaq-movers')
                 ),
                 array(
                     "icon" => "wrench",
                     "title" => __("تركيب الأثاث", 'rifaq-movers'),
-                    "desc" => __("تفكيك وتركيب احترافي لجميع أنواع الأثاث من قبل فنيينا المهرة.", 'rifaq-movers')
+                    "desc" => __("تفكيك وتركيب جميع أنواع الأثاث بخبرة لتجربة نقل كاملة.", 'rifaq-movers')
                 )
             )
         ),
@@ -196,8 +194,8 @@ $t = array(
             'satisfaction' => __('نسبة الرضا', 'rifaq-movers'),
         ),
         'about' => array(
-            'title' => __('شريكك الموثوق للنقل في الإمارات', 'rifaq-movers'),
-            'desc' => __('مع أكثر من عقد من الخبرة، أثبتت طريق سريع لنقل الأثاث مكانتها كشركة رائدة في صناعة النقل في الإمارات. التزامنا بالتميز ورضا العملاء هو ما يدفعنا في كل ما نقوم به.', 'rifaq-movers'),
+            'title' => __('لماذا تختار طريق سريع لنقل الأثاث؟', 'rifaq-movers'),
+            'desc' => __('مع أكثر من عقد من الخبرة في الإمارات، أتقنا فن النقل. تم تدريب فريقنا للتعامل مع كل شيء من التحف الرقيقة إلى معدات المكاتب الكبيرة بأقصى قدر من العناية.', 'rifaq-movers'),
             'rating' => __('متوسط تقييم العملاء', 'rifaq-movers'),
             'points' => array(
                 __('شركة نقل مرخصة ومؤمنة', 'rifaq-movers'),
@@ -222,22 +220,22 @@ $t = array(
         ),
         'testimonials' => array(
             'title' => __('ماذا يقول عملاؤنا', 'rifaq-movers'),
-            'subtitle' => __('اقرأ تقييمات صادقة من عملائنا الراضين في جميع أنحاء الإمارات.', 'rifaq-movers'),
+            'subtitle' => __('لا تكتفِ بكلمتنا فقط. إليك ما يقوله عملاؤنا عن تجربتهم معنا.', 'rifaq-movers'),
             'items' => array(
                 array(
-                    "name" => __("أحمد حسن", 'rifaq-movers'),
-                    "role" => __("صاحب فيلا، دبي", 'rifaq-movers'),
-                    "content" => __("خدمة ممتازة! كان الفريق محترفاً ومنضبطاً وتعامل مع أثاثي بعناية كبيرة. نوصي به بشدة لنقل الفلل.", 'rifaq-movers')
+                    "name" => __("سارة جونسون", 'rifaq-movers'),
+                    "role" => __("صاحبة منزل", 'rifaq-movers'),
+                    "content" => __("جعلت شركة طريق سريع انتقالي سهلاً للغاية. كان فريقهم محترفًا ومنضبطًا وتعاملوا مع كل شيء بعناية.", 'rifaq-movers')
                 ),
                 array(
-                    "name" => __("سارة ميلر", 'rifaq-movers'),
-                    "role" => __("مقيمة في شقة، أبو ظبي", 'rifaq-movers'),
-                    "content" => __("جعلت طريق سريع لنقل الأثاث انتقالي سهلاً للغاية. لقد قاموا بتغليف كل شيء بشكل مثالي ولم يتضرر شيء. قيمة رائعة مقابل المال.", 'rifaq-movers')
+                    "name" => __("أحمد الفايد", 'rifaq-movers'),
+                    "role" => __("مدير أعمال", 'rifaq-movers'),
+                    "content" => __("نقلنا مكتبنا بالكامل خلال عطلة نهاية الأسبوع دون أي مشاكل. نوصي بشدة بخدماتهم التجارية.", 'rifaq-movers')
                 ),
                 array(
-                    "name" => __("محمد علي", 'rifaq-movers'),
-                    "role" => __("صاحب عمل، الشارقة", 'rifaq-movers'),
-                    "content" => __("استخدمناهم لنقل مكتبنا. كانوا فعالين للغاية وعدنا للعمل في وقت قصير. فريق محترف.", 'rifaq-movers')
+                    "name" => __("مايكل تشين", 'rifaq-movers'),
+                    "role" => __("صاحب فيلا", 'rifaq-movers'),
+                    "content" => __("كان نقل فيلتي مرهقاً، لكن طريق سريع تعاملت مع كل شيء بشكل مثالي وبمنتهى العناية.", 'rifaq-movers')
                 )
             )
         ),
@@ -247,7 +245,7 @@ $t = array(
             'call_us' => __('اتصل بنا', 'rifaq-movers'),
             'email_us' => __('راسلنا', 'rifaq-movers'),
             'office' => __('مكتبنا', 'rifaq-movers'),
-            'address' => __('البرشا، دبي، الإمارات العربية المتحدة', 'rifaq-movers'),
+            'address' => __('Business Bay, Dubai, UAE', 'rifaq-movers'),
             'labels' => array(
                 'name' => __('الاسم الكامل', 'rifaq-movers'),
                 'phone' => __('رقم الهاتف', 'rifaq-movers'),
@@ -268,8 +266,8 @@ $t = array(
             )
         ),
         'urgent' => array(
-            'title' => __('هل تحتاج إلى نقل عاجل؟', 'rifaq-movers'),
-            'subtitle' => __('نحن متواجدون على مدار الساعة طوال أيام الأسبوع لخدمات النقل الطارئة في جميع أنحاء الإمارات.', 'rifaq-movers'),
+            'title' => __('طلب نقل عاجل؟', 'rifaq-movers'),
+            'subtitle' => __('نحن متواجدون على مدار الساعة طوال أيام الأسبوع في جميع الإمارات بما في ذلك دبي، أبو ظبي، الشارقة، عجمان، رأس الخيمة، والفجيرة.', 'rifaq-movers'),
             'call' => __('اتصل الآن: 0528102191', 'rifaq-movers'),
         )
     )

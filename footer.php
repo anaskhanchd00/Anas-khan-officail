@@ -10,7 +10,7 @@
                         <span class="text-xl font-serif font-bold text-white"><?php echo __('TAREEQ SAREE MOVERS', 'rifaq-movers'); ?></span>
                     </div>
                     <p class="text-gray-400 leading-relaxed">
-                        <?php echo __('TAREEQ SAREE MOVERS & Packers provides premium moving and storage solutions across the UAE since 2012.', 'rifaq-movers'); ?>
+                        <?php echo __('TAREEQ SAREE MOVERS & PACKERS L.L.C provides premium moving and storage solutions across the UAE since 2012.', 'rifaq-movers'); ?>
                     </p>
                     <div class="flex gap-4">
                         <a href="#" class="bg-white/10 p-3 rounded-xl hover:bg-accent transition-colors"><i data-lucide="facebook" class="size-5"></i></a>

@@ -48,7 +48,7 @@ function rifaq_movers_set_locale($locale) {
             return 'en_US';
         }
     }
-    return $locale;
+    return 'en_US'; // Default to English
 }
 add_filter('locale', 'rifaq_movers_set_locale');
 
