@@ -455,7 +455,7 @@ $current = $t[$lang];
                 </p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <?php foreach ($current['testimonials']['items'] as $t) : ?>
+                <?php foreach ($current['testimonials']['items'] as $testimonial) : ?>
                     <div class="card">
                         <div class="flex gap-1 mb-4">
                             <?php for ($i = 0; $i < 5; $i++) : ?>
@@ -463,15 +463,15 @@ $current = $t[$lang];
                             <?php endfor; ?>
                         </div>
                         <p class="text-gray-600 italic mb-6 leading-relaxed">
-                            "<?php echo $t['content']; ?>"
+                            "<?php echo $testimonial['content']; ?>"
                         </p>
                         <div class="flex items-center gap-4">
                             <div class="size-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">
-                                <?php echo mb_substr($t['name'], 0, 1); ?>
+                                <?php echo mb_substr($testimonial['name'], 0, 1); ?>
                             </div>
                             <div>
-                                <div class="font-bold text-primary"><?php echo $t['name']; ?></div>
-                                <div class="text-sm text-gray-500"><?php echo $t['role']; ?></div>
+                                <div class="font-bold text-primary"><?php echo $testimonial['name']; ?></div>
+                                <div class="text-sm text-gray-500"><?php echo $testimonial['role']; ?></div>
                             </div>
                         </div>
                     </div>

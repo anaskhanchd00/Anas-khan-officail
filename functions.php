@@ -29,72 +29,28 @@ add_action('after_setup_theme', 'rifaq_movers_setup');
 function rifaq_movers_handle_language_switch() {
     if (isset($_GET['lang'])) {
         $lang = sanitize_text_field($_GET['lang']);
+        // Set cookie with both PHP and JS-friendly settings
+        setcookie('rifaq_lang', $lang, time() + (86400 * 30), "/");
         
-        // Set cookie with iframe compatibility (SameSite=None; Secure)
-        // Note: Secure requires HTTPS, which the dev environment provides.
-        if (PHP_VERSION_ID >= 70300) {
-            setcookie('rifaq_lang', $lang, [
-                'expires' => time() + (86400 * 30),
-                'path' => '/',
-                'secure' => true,
-                'httponly' => false,
-                'samesite' => 'None',
-            ]);
-        } else {
-            setcookie('rifaq_lang', $lang, time() + (86400 * 30), "/; SameSite=None; Secure");
-        }
-        
-        wp_redirect(remove_query_arg('lang'));
+        // Redirect to the same page without the lang parameter
+        $redirect_url = remove_query_arg('lang');
+        wp_redirect($redirect_url);
         exit;
     }
 }
-add_action('init', 'rifaq_movers_handle_language_switch');
+add_action('template_redirect', 'rifaq_movers_handle_language_switch');
 
 function rifaq_movers_set_locale($locale) {
-    $lang = isset($_GET['lang']) ? sanitize_text_field($_GET['lang']) : (isset($_COOKIE['rifaq_lang']) ? sanitize_text_field($_COOKIE['rifaq_lang']) : '');
-    if ($lang == 'ar') {
-        return 'ar';
-    } elseif ($lang == 'en') {
-        return 'en_US';
+    if (isset($_COOKIE['rifaq_lang'])) {
+        if ($_COOKIE['rifaq_lang'] == 'ar') {
+            return 'ar';
+        } else {
+            return 'en_US';
+        }
     }
     return $locale;
 }
-add_filter('locale', 'rifaq_movers_set_locale', 100);
-
-/**
- * Force RTL direction when Arabic is selected
- */
-function rifaq_movers_force_rtl($is_rtl) {
-    $locale = get_locale();
-    if ($locale == 'ar') {
-        return true;
-    }
-    $lang = isset($_GET['lang']) ? sanitize_text_field($_GET['lang']) : (isset($_COOKIE['rifaq_lang']) ? sanitize_text_field($_COOKIE['rifaq_lang']) : '');
-    if ($lang == 'ar') {
-        return true;
-    }
-    return $is_rtl;
-}
-add_filter('is_rtl', 'rifaq_movers_force_rtl', 100);
-
-/**
- * Ensure the global locale object is updated
- */
-function rifaq_movers_update_locale_object() {
-    global $wp_locale;
-    if (!($wp_locale instanceof WP_Locale)) {
-        return;
-    }
-    $locale = get_locale();
-    $lang = isset($_GET['lang']) ? sanitize_text_field($_GET['lang']) : (isset($_COOKIE['rifaq_lang']) ? sanitize_text_field($_COOKIE['rifaq_lang']) : '');
-    if ($locale == 'ar' || $lang == 'ar') {
-        $wp_locale->text_direction = 'rtl';
-    } else {
-        $wp_locale->text_direction = 'ltr';
-    }
-}
-add_action('init', 'rifaq_movers_update_locale_object', 100);
-add_action('wp', 'rifaq_movers_update_locale_object', 100);
+add_filter('locale', 'rifaq_movers_set_locale');
 
 function rifaq_movers_scripts() {
     // Enqueue Tailwind CSS via CDN (Script, not Style)
@@ -108,60 +64,81 @@ function rifaq_movers_scripts() {
     
     // Custom Script to initialize Lucide and handle scroll
     wp_add_inline_script('lucide', "
-        console.log('Current Locale:', '" . get_locale() . "');
-        console.log('Is RTL:', " . (is_rtl() ? 'true' : 'false') . ");
-        console.log('Cookie rifaq_lang:', document.cookie.split('; ').find(row => row.startsWith('rifaq_lang='))?.split('=')[1]);
-
-        // JS-based cookie setter for language switching
-        document.addEventListener('click', function(e) {
-            const link = e.target.closest('a[href*=\"?lang=\"]');
-            if (link) {
-                const url = new URL(link.href, window.location.origin);
-                const lang = url.searchParams.get('lang');
-                if (lang) {
-                    console.log('Setting rifaq_lang cookie via JS:', lang);
-                    document.cookie = `rifaq_lang=${lang}; path=/; max-age=${86400*30}; SameSite=None; Secure`;
-                }
-            }
-        });
-
         document.addEventListener('DOMContentLoaded', function() {
             lucide.createIcons();
+            
+            // Mobile Menu Toggle
+            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenuToggle && mobileMenu) {
+                mobileMenuToggle.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    mobileMenu.classList.toggle('hidden');
+                });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!mobileMenu.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+                
+                // Close menu when clicking a link
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                    });
+                });
+            }
+
+            // Language Switcher Helper
+            window.switchLanguage = function(lang) {
+                document.cookie = 'rifaq_lang=' + lang + '; path=/; max-age=' + (86400 * 30);
+                const url = new URL(window.location.href);
+                url.searchParams.delete('lang');
+                window.location.href = url.pathname + url.search;
+            };
             
             // Scroll handler for header
             const header = document.getElementById('main-header');
             const companyName = document.getElementById('company-name');
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 50) {
-                    header.classList.add('p-4');
-                    header.classList.remove('p-0');
-                    const nav = header.querySelector('nav');
-                    nav.classList.add('container', 'mx-auto', 'rounded-2xl', 'bg-white/90', 'backdrop-blur-md', 'shadow-lg', 'py-3', 'px-6');
-                    nav.classList.remove('w-full', 'bg-black/20', 'backdrop-blur-sm', 'py-5', 'border-b', 'border-white/10', 'px-8');
-                    companyName.classList.add('text-primary');
-                    companyName.classList.remove('text-white');
-                    
-                    // Update nav links color
-                    document.querySelectorAll('.nav-link').forEach(link => {
-                        link.classList.add('text-foreground');
-                        link.classList.remove('text-white');
-                    });
-                } else {
-                    header.classList.remove('p-4');
-                    header.classList.add('p-0');
-                    const nav = header.querySelector('nav');
-                    nav.classList.remove('container', 'mx-auto', 'rounded-2xl', 'bg-white/90', 'backdrop-blur-md', 'shadow-lg', 'py-3', 'px-6');
-                    nav.classList.add('w-full', 'bg-black/20', 'backdrop-blur-sm', 'py-5', 'border-b', 'border-white/10', 'px-8');
-                    companyName.classList.remove('text-primary');
-                    companyName.classList.add('text-white');
-                    
-                    // Update nav links color
-                    document.querySelectorAll('.nav-link').forEach(link => {
-                        link.classList.remove('text-foreground');
-                        link.classList.add('text-white');
-                    });
-                }
-            });
+            if (header && companyName) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 50) {
+                        header.classList.add('p-4');
+                        header.classList.remove('p-0');
+                        const nav = header.querySelector('nav');
+                        if (nav) {
+                            nav.classList.add('container', 'mx-auto', 'rounded-2xl', 'bg-white/90', 'backdrop-blur-md', 'shadow-lg', 'py-3', 'px-6');
+                            nav.classList.remove('w-full', 'bg-black/20', 'backdrop-blur-sm', 'py-5', 'border-b', 'border-white/10', 'px-8');
+                        }
+                        companyName.classList.add('text-primary');
+                        companyName.classList.remove('text-white');
+                        
+                        // Update nav links color
+                        document.querySelectorAll('.nav-link').forEach(link => {
+                            link.classList.add('text-foreground');
+                            link.classList.remove('text-white');
+                        });
+                    } else {
+                        header.classList.remove('p-4');
+                        header.classList.add('p-0');
+                        const nav = header.querySelector('nav');
+                        if (nav) {
+                            nav.classList.remove('container', 'mx-auto', 'rounded-2xl', 'bg-white/90', 'backdrop-blur-md', 'shadow-lg', 'py-3', 'px-6');
+                            nav.classList.add('w-full', 'bg-black/20', 'backdrop-blur-sm', 'py-5', 'border-b', 'border-white/10', 'px-8');
+                        }
+                        companyName.classList.remove('text-primary');
+                        companyName.classList.add('text-white');
+                        
+                        // Update nav links color
+                        document.querySelectorAll('.nav-link').forEach(link => {
+                            link.classList.remove('text-foreground');
+                            link.classList.add('text-white');
+                        });
+                    }
+                });
+            }
         });
     ");
 }

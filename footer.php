@@ -67,6 +67,18 @@
         </div>
     </footer>
 
+    <!-- Floating Language Switcher (Mobile Only) -->
+    <div class="fixed bottom-6 <?php echo is_rtl() ? 'right-6' : 'left-6'; ?> z-50 lg:hidden">
+        <div class="flex flex-col gap-2">
+            <button onclick="switchLanguage('en')" class="bg-white text-primary p-3 rounded-full shadow-2xl border border-gray-200 font-bold text-xs hover:bg-gray-50 transition-all <?php echo !is_rtl() ? 'ring-2 ring-accent' : ''; ?>">
+                EN
+            </button>
+            <button onclick="switchLanguage('ar')" class="bg-white text-primary p-3 rounded-full shadow-2xl border border-gray-200 font-bold text-xs hover:bg-gray-50 transition-all font-serif <?php echo is_rtl() ? 'ring-2 ring-accent' : ''; ?>">
+                عربي
+            </button>
+        </div>
+    </div>
+
     <!-- Floating Call Button -->
     <a href="tel:+971528102191" class="fixed bottom-6 <?php echo is_rtl() ? 'left-6' : 'right-6'; ?> z-50 bg-accent text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-all group md:bottom-8 md:<?php echo is_rtl() ? 'left-8' : 'right-8'; ?>">
         <i data-lucide="phone" class="size-7 md:size-8"></i>

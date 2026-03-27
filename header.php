@@ -13,7 +13,7 @@
 
     <!-- Navigation - Integrated Header -->
     <div id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 p-0 pointer-events-auto">
-        <nav class="transition-all duration-300 w-full bg-black/20 backdrop-blur-sm py-5 border-b border-white/10 px-8">
+        <nav class="transition-all duration-300 w-full bg-black/20 backdrop-blur-sm py-5 border-b border-white/10 px-8 relative">
             <div class="flex items-center justify-between">
                 <div class="flex items-center gap-2">
                     <div class="bg-primary p-2 rounded-lg">
@@ -39,16 +39,21 @@
                         <a href="#<?php echo $id; ?>" class="nav-link font-medium transition-colors hover:text-accent text-white"><?php echo $label; ?></a>
                     <?php endforeach; ?>
                     
-                    <div class="flex items-center gap-3">
-                        <!-- Language Switcher -->
-                        <div class="flex items-center gap-2 bg-white/10 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20">
-                            <i data-lucide="languages" class="size-4 text-accent"></i>
-                            <a href="?lang=en" class="text-xs font-bold <?php echo !is_rtl() ? 'text-accent' : 'text-white/60'; ?> hover:text-accent transition-colors">EN</a>
-                            <span class="text-white/20">|</span>
-                            <a href="?lang=ar" class="text-xs font-bold <?php echo is_rtl() ? 'text-accent' : 'text-white/60'; ?> hover:text-accent transition-colors font-serif">عربي</a>
-                        </div>
-                        
-                        <a href="tel:+971528102191" class="bg-accent text-white px-4 py-2 rounded-xl flex items-center gap-2 whitespace-nowrap hover:bg-accent/90 transition-all font-bold">
+                        <div class="flex items-center gap-3">
+                            <!-- Language Switcher -->
+                            <div class="flex items-center gap-2 bg-white/10 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20">
+                                <i data-lucide="languages" class="size-4 text-accent"></i>
+                                <button onclick="switchLanguage('en')" class="text-xs font-bold <?php echo !is_rtl() ? 'text-accent' : 'text-white/60'; ?> hover:text-accent transition-colors">EN</button>
+                                <span class="text-white/20">|</span>
+                                <button onclick="switchLanguage('ar')" class="text-xs font-bold <?php echo is_rtl() ? 'text-accent' : 'text-white/60'; ?> hover:text-accent transition-colors font-serif">عربي</button>
+                            </div>
+                            
+                            <!-- Google Translate Trigger -->
+                            <button onclick="document.getElementById('google_translate_element').style.display='block'; this.style.display='none';" class="bg-white/10 backdrop-blur-md p-2 rounded-full border border-white/20 text-white hover:bg-white/20 transition-all" title="Full Page Auto-Translate">
+                                <i data-lucide="globe" class="size-4"></i>
+                            </button>
+                            
+                            <a href="tel:+971528102191" class="bg-accent text-white px-4 py-2 rounded-xl flex items-center gap-2 whitespace-nowrap hover:bg-accent/90 transition-all font-bold">
                             <i data-lucide="phone" class="size-4"></i>
                             <?php echo __('Urgent Call: 0528102191', 'rifaq-movers'); ?>
                         </a>
@@ -69,9 +74,12 @@
                     <?php endforeach; ?>
                     
                     <!-- Mobile Language Switcher -->
-                    <div class="flex items-center justify-center gap-6 py-2 border-y border-gray-100">
-                        <a href="?lang=en" class="text-sm font-bold <?php echo !is_rtl() ? 'text-accent' : 'text-gray-500'; ?> hover:text-accent transition-colors">ENGLISH</a>
-                        <a href="?lang=ar" class="text-sm font-bold <?php echo is_rtl() ? 'text-accent' : 'text-gray-500'; ?> hover:text-accent transition-colors font-serif">العربية</a>
+                    <div class="flex items-center justify-center gap-4 py-2 border-y border-gray-100">
+                        <button onclick="switchLanguage('en')" class="text-sm font-bold <?php echo !is_rtl() ? 'text-accent' : 'text-gray-500'; ?> hover:text-accent transition-colors">ENGLISH</button>
+                        <button onclick="switchLanguage('ar')" class="text-sm font-bold <?php echo is_rtl() ? 'text-accent' : 'text-gray-500'; ?> hover:text-accent transition-colors font-serif">العربية</button>
+                        <button onclick="document.getElementById('google_translate_element').style.display='block'; this.closest('#mobile-menu').classList.add('hidden');" class="text-gray-500 hover:text-accent transition-colors">
+                            <i data-lucide="globe" class="size-5"></i>
+                        </button>
                     </div>
 
                     <a href="tel:+971528102191" class="bg-accent text-white px-4 py-3 rounded-xl flex items-center justify-center gap-2 font-bold">
@@ -83,9 +91,11 @@
         </nav>
     </div>
 
-    <script>
-        document.getElementById('mobile-menu-toggle').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
+    <!-- Google Translate Fallback (Hidden by default) -->
+    <div id="google_translate_element" class="fixed top-20 right-4 z-[60] bg-white p-2 rounded-xl shadow-2xl border border-gray-200" style="display:none"></div>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,ar', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+        }
     </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
