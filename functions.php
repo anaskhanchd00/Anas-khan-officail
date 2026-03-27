@@ -29,7 +29,21 @@ add_action('after_setup_theme', 'rifaq_movers_setup');
 function rifaq_movers_handle_language_switch() {
     if (isset($_GET['lang'])) {
         $lang = sanitize_text_field($_GET['lang']);
-        setcookie('rifaq_lang', $lang, time() + (86400 * 30), "/");
+        
+        // Set cookie with iframe compatibility (SameSite=None; Secure)
+        // Note: Secure requires HTTPS, which the dev environment provides.
+        if (PHP_VERSION_ID >= 70300) {
+            setcookie('rifaq_lang', $lang, [
+                'expires' => time() + (86400 * 30),
+                'path' => '/',
+                'secure' => true,
+                'httponly' => false,
+                'samesite' => 'None',
+            ]);
+        } else {
+            setcookie('rifaq_lang', $lang, time() + (86400 * 30), "/; SameSite=None; Secure");
+        }
+        
         wp_redirect(remove_query_arg('lang'));
         exit;
     }
@@ -45,31 +59,42 @@ function rifaq_movers_set_locale($locale) {
     }
     return $locale;
 }
-add_filter('locale', 'rifaq_movers_set_locale');
+add_filter('locale', 'rifaq_movers_set_locale', 100);
 
 /**
  * Force RTL direction when Arabic is selected
  */
 function rifaq_movers_force_rtl($is_rtl) {
+    $locale = get_locale();
+    if ($locale == 'ar') {
+        return true;
+    }
     $lang = isset($_GET['lang']) ? sanitize_text_field($_GET['lang']) : (isset($_COOKIE['rifaq_lang']) ? sanitize_text_field($_COOKIE['rifaq_lang']) : '');
     if ($lang == 'ar') {
         return true;
     }
     return $is_rtl;
 }
-add_filter('is_rtl', 'rifaq_movers_force_rtl');
+add_filter('is_rtl', 'rifaq_movers_force_rtl', 100);
 
 /**
  * Ensure the global locale object is updated
  */
 function rifaq_movers_update_locale_object() {
     global $wp_locale;
+    if (!($wp_locale instanceof WP_Locale)) {
+        return;
+    }
+    $locale = get_locale();
     $lang = isset($_GET['lang']) ? sanitize_text_field($_GET['lang']) : (isset($_COOKIE['rifaq_lang']) ? sanitize_text_field($_COOKIE['rifaq_lang']) : '');
-    if ($lang == 'ar') {
+    if ($locale == 'ar' || $lang == 'ar') {
         $wp_locale->text_direction = 'rtl';
+    } else {
+        $wp_locale->text_direction = 'ltr';
     }
 }
-add_action('after_setup_theme', 'rifaq_movers_update_locale_object');
+add_action('init', 'rifaq_movers_update_locale_object', 100);
+add_action('wp', 'rifaq_movers_update_locale_object', 100);
 
 function rifaq_movers_scripts() {
     // Enqueue Tailwind CSS via CDN (Script, not Style)
@@ -83,6 +108,23 @@ function rifaq_movers_scripts() {
     
     // Custom Script to initialize Lucide and handle scroll
     wp_add_inline_script('lucide', "
+        console.log('Current Locale:', '" . get_locale() . "');
+        console.log('Is RTL:', " . (is_rtl() ? 'true' : 'false') . ");
+        console.log('Cookie rifaq_lang:', document.cookie.split('; ').find(row => row.startsWith('rifaq_lang='))?.split('=')[1]);
+
+        // JS-based cookie setter for language switching
+        document.addEventListener('click', function(e) {
+            const link = e.target.closest('a[href*=\"?lang=\"]');
+            if (link) {
+                const url = new URL(link.href, window.location.origin);
+                const lang = url.searchParams.get('lang');
+                if (lang) {
+                    console.log('Setting rifaq_lang cookie via JS:', lang);
+                    document.cookie = `rifaq_lang=${lang}; path=/; max-age=${86400*30}; SameSite=None; Secure`;
+                }
+            }
+        });
+
         document.addEventListener('DOMContentLoaded', function() {
             lucide.createIcons();
             

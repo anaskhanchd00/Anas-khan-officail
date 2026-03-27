@@ -4,11 +4,19 @@ $lang = $is_rtl ? 'ar' : 'en';
 
 // Robust language detection as fallback
 if (isset($_GET['lang'])) {
-    $lang = ($_GET['lang'] == 'ar') ? 'ar' : 'en';
+    $lang = (sanitize_text_field($_GET['lang']) == 'ar') ? 'ar' : 'en';
     $is_rtl = ($lang == 'ar');
 } elseif (isset($_COOKIE['rifaq_lang'])) {
-    $lang = ($_COOKIE['rifaq_lang'] == 'ar') ? 'ar' : 'en';
+    $lang = (sanitize_text_field($_COOKIE['rifaq_lang']) == 'ar') ? 'ar' : 'en';
     $is_rtl = ($lang == 'ar');
+}
+
+// Force global RTL state for this request if Arabic is detected
+if ($lang == 'ar') {
+    global $wp_locale;
+    if ($wp_locale instanceof WP_Locale) {
+        $wp_locale->text_direction = 'rtl';
+    }
 }
 
 get_header(); ?>
