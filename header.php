@@ -19,22 +19,15 @@
                     <div class="bg-primary p-2 rounded-lg">
                         <i data-lucide="truck" class="size-6 text-white"></i>
                     </div>
-                    <span id="company-name" class="text-xl font-serif font-bold text-white">
-                        <?php echo is_rtl() ? 'طريق سريع لنقل الأثاث' : 'TAREEQ SAREE MOVERS'; ?>
+                    <span id="company-name" class="text-xl font-serif font-bold text-white uppercase tracking-wider">
+                        <?php echo __('Rifaq Movers', 'rifaq-movers'); ?>
                     </span>
                 </div>
 
                 <!-- Desktop Menu -->
                 <div class="hidden lg:flex items-center gap-6">
                     <?php
-                    $nav_items = is_rtl() ? array(
-                        'home' => 'الرئيسية',
-                        'services' => 'خدماتنا',
-                        'about' => 'من نحن',
-                        'coverage' => 'مناطق الخدمة',
-                        'testimonials' => 'آراء العملاء',
-                        'contact' => 'اتصل بنا'
-                    ) : array(
+                    $nav_items = array(
                         'home' => __('Home', 'rifaq-movers'),
                         'services' => __('Services', 'rifaq-movers'),
                         'about' => __('About', 'rifaq-movers'),
@@ -48,7 +41,8 @@
                     
                     <div class="flex items-center gap-3">
                         <!-- Language Switcher -->
-                        <div class="flex items-center gap-2 border-r border-white/20 pr-3 mr-1">
+                        <div class="flex items-center gap-2 bg-white/10 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20">
+                            <i data-lucide="languages" class="size-4 text-accent"></i>
                             <a href="?lang=en" class="text-xs font-bold <?php echo !is_rtl() ? 'text-accent' : 'text-white/60'; ?> hover:text-accent transition-colors">EN</a>
                             <span class="text-white/20">|</span>
                             <a href="?lang=ar" class="text-xs font-bold <?php echo is_rtl() ? 'text-accent' : 'text-white/60'; ?> hover:text-accent transition-colors font-serif">عربي</a>
@@ -56,7 +50,7 @@
                         
                         <a href="tel:+971528102191" class="bg-accent text-white px-4 py-2 rounded-xl flex items-center gap-2 whitespace-nowrap hover:bg-accent/90 transition-all font-bold">
                             <i data-lucide="phone" class="size-4"></i>
-                            <?php echo is_rtl() ? 'اتصال عاجل: 0528102191' : __('Urgent Call: 0528102191', 'rifaq-movers'); ?>
+                            <?php echo __('Urgent Call: 0528102191', 'rifaq-movers'); ?>
                         </a>
                     </div>
                 </div>
@@ -82,7 +76,7 @@
 
                     <a href="tel:+971528102191" class="bg-accent text-white px-4 py-3 rounded-xl flex items-center justify-center gap-2 font-bold">
                         <i data-lucide="phone" class="size-5"></i>
-                        <?php echo is_rtl() ? 'اتصال عاجل: 0528102191' : __('Urgent Call: 0528102191', 'rifaq-movers'); ?>
+                        <?php echo __('Urgent Call: 0528102191', 'rifaq-movers'); ?>
                     </a>
                 </div>
             </div>

@@ -7,10 +7,10 @@
                         <div class="bg-accent p-2 rounded-lg">
                             <i data-lucide="truck" class="size-6 text-white"></i>
                         </div>
-                        <span class="text-xl font-serif font-bold text-white"><?php echo is_rtl() ? 'طريق سريع لنقل الأثاث' : 'TAREEQ SAREE MOVERS'; ?></span>
+                        <span class="text-xl font-serif font-bold text-white"><?php echo __('Rifaq Movers', 'rifaq-movers'); ?></span>
                     </div>
                     <p class="text-gray-400 leading-relaxed">
-                        <?php echo is_rtl() ? 'تقدم شركة طريق سريع لنقل الأثاث وتغليف ونقل الأثاث ذ.م.م حلول نقل وتخزين متميزة في جميع أنحاء الإمارات منذ عام 2012.' : __('TAREEQ SAREE MOVERS PACKERS FURNITURE TRANSFER L.L.C provides premium moving and storage solutions across the UAE since 2012.', 'rifaq-movers'); ?>
+                        <?php echo __('Rifaq Movers & Packers provides premium moving and storage solutions across the UAE since 2012.', 'rifaq-movers'); ?>
                     </p>
                     <div class="flex gap-4">
                         <a href="#" class="bg-white/10 p-3 rounded-xl hover:bg-accent transition-colors"><i data-lucide="facebook" class="size-5"></i></a>
@@ -20,17 +20,10 @@
                     </div>
                 </div>
                 <div>
-                    <h4 class="text-xl font-bold mb-6"><?php echo is_rtl() ? 'روابط سريعة' : __('Quick Links', 'rifaq-movers'); ?></h4>
+                    <h4 class="text-xl font-bold mb-6"><?php echo __('Quick Links', 'rifaq-movers'); ?></h4>
                     <ul class="space-y-4 text-gray-400">
                         <?php
-                        $footer_links = is_rtl() ? array(
-                            'home' => 'الرئيسية',
-                            'services' => 'خدماتنا',
-                            'about' => 'من نحن',
-                            'coverage' => 'مناطق الخدمة',
-                            'testimonials' => 'آراء العملاء',
-                            'contact' => 'اتصل بنا'
-                        ) : array(
+                        $footer_links = array(
                             'home' => __('Home', 'rifaq-movers'),
                             'services' => __('Services', 'rifaq-movers'),
                             'about' => __('About', 'rifaq-movers'),
@@ -44,20 +37,14 @@
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-xl font-bold mb-6"><?php echo is_rtl() ? 'خدماتنا' : __('Our Services', 'rifaq-movers'); ?></h4>
+                    <h4 class="text-xl font-bold mb-6"><?php echo __('Our Services', 'rifaq-movers'); ?></h4>
                     <ul class="space-y-4 text-gray-400">
                         <?php
-                        $footer_services = is_rtl() ? array(
-                            'نقل سكني',
-                            'نقل الفلل والشقق',
-                            'نقل تجاري',
-                            'خدمات التغليف',
-                            'حلول التخزين'
-                        ) : array(
+                        $footer_services = array(
                             __('Residential Moving', 'rifaq-movers'),
                             __('Villa & Apartment Moving', 'rifaq-movers'),
-                            __('Commercial Moving', 'rifaq-movers'),
-                            __('Packing Services', 'rifaq-movers'),
+                            __('Office Relocation', 'rifaq-movers'),
+                            __('Expert Packing', 'rifaq-movers'),
                             __('Storage Solutions', 'rifaq-movers')
                         );
                         foreach ($footer_services as $service) : ?>
@@ -66,35 +53,25 @@
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-xl font-bold mb-6"><?php echo is_rtl() ? 'النشرة الإخبارية' : __('Newsletter', 'rifaq-movers'); ?></h4>
-                    <p class="text-gray-400 mb-6"><?php echo is_rtl() ? 'اشترك للحصول على آخر الأخبار ونصائح النقل.' : __('Subscribe to get the latest news and moving tips.', 'rifaq-movers'); ?></p>
+                    <h4 class="text-xl font-bold mb-6"><?php echo __('Newsletter', 'rifaq-movers'); ?></h4>
+                    <p class="text-gray-400 mb-6"><?php echo __('Subscribe to get the latest news and moving tips.', 'rifaq-movers'); ?></p>
                     <form class="space-y-4">
-                        <input type="email" placeholder="<?php echo is_rtl() ? 'البريد الإلكتروني' : __('Email Address', 'rifaq-movers'); ?>" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 focus:border-accent outline-none transition-all">
-                        <button class="bg-accent text-white w-full py-3 rounded-xl font-bold hover:bg-accent/90 transition-all"><?php echo is_rtl() ? 'اشتراك' : __('Subscribe', 'rifaq-movers'); ?></button>
+                        <input type="email" placeholder="<?php echo __('Email Address', 'rifaq-movers'); ?>" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 focus:border-accent outline-none transition-all">
+                        <button class="bg-accent text-white w-full py-3 rounded-xl font-bold hover:bg-accent/90 transition-all"><?php echo __('Subscribe', 'rifaq-movers'); ?></button>
                     </form>
                 </div>
             </div>
             <div class="mt-20 pt-8 border-t border-white/10 text-center text-gray-500">
-                <p>&copy; <?php echo date('Y'); ?> <?php echo is_rtl() ? 'طريق سريع لنقل الأثاث' : 'TAREEQ SAREE MOVERS'; ?>. <?php echo is_rtl() ? 'جميع الحقوق محفوظة.' : __('All rights reserved.', 'rifaq-movers'); ?></p>
+                <p>&copy; <?php echo date('Y'); ?> <?php echo __('Rifaq Movers', 'rifaq-movers'); ?>. <?php echo __('All rights reserved.', 'rifaq-movers'); ?></p>
             </div>
         </div>
     </footer>
 
-    <!-- Floating Language Switcher -->
-    <div class="fixed bottom-8 <?php echo is_rtl() ? 'right-8' : 'left-8'; ?> z-50 flex flex-col gap-2">
-        <a href="?lang=en" class="size-12 rounded-full flex items-center justify-center font-bold text-xs transition-all shadow-2xl <?php echo !is_rtl() ? 'bg-accent text-white scale-110' : 'bg-white text-primary hover:bg-gray-100'; ?>">
-            EN
-        </a>
-        <a href="?lang=ar" class="size-12 rounded-full flex items-center justify-center font-bold text-xs transition-all shadow-2xl font-serif <?php echo is_rtl() ? 'bg-accent text-white scale-110' : 'bg-white text-primary hover:bg-gray-100'; ?>">
-            عربي
-        </a>
-    </div>
-
     <!-- Floating Call Button -->
-    <a href="tel:+971528102191" class="fixed bottom-8 <?php echo is_rtl() ? 'left-8' : 'right-8'; ?> z-50 bg-accent text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-all group">
-        <i data-lucide="phone" class="size-8"></i>
-        <span class="absolute <?php echo is_rtl() ? 'left-full ml-4' : 'right-full mr-4'; ?> top-1/2 -translate-y-1/2 bg-primary text-white px-4 py-2 rounded-xl text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-            <?php echo is_rtl() ? 'اتصل الآن: 0528102191' : __('Call Now: 0528102191', 'rifaq-movers'); ?>
+    <a href="tel:+971528102191" class="fixed bottom-6 <?php echo is_rtl() ? 'left-6' : 'right-6'; ?> z-50 bg-accent text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-all group md:bottom-8 md:<?php echo is_rtl() ? 'left-8' : 'right-8'; ?>">
+        <i data-lucide="phone" class="size-7 md:size-8"></i>
+        <span class="absolute <?php echo is_rtl() ? 'left-full ml-4' : 'right-full mr-4'; ?> top-1/2 -translate-y-1/2 bg-primary text-white px-4 py-2 rounded-xl text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap hidden md:block">
+            <?php echo __('Call Now: 0528102191', 'rifaq-movers'); ?>
         </span>
     </a>
 
@@ -103,7 +80,7 @@
         <a href="tel:+971528102191" class="bg-accent text-white py-4 px-2 rounded-l-xl flex flex-col items-center gap-2 shadow-xl hover:pl-4 transition-all group">
             <i data-lucide="phone" class="size-6"></i>
             <span class="[writing-mode:vertical-rl] font-bold tracking-widest uppercase text-xs">
-                <?php echo is_rtl() ? 'اتصل الآن' : __('CALL NOW', 'rifaq-movers'); ?>
+                <?php echo __('CALL NOW', 'rifaq-movers'); ?>
             </span>
         </a>
     </div>

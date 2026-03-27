@@ -1,159 +1,209 @@
+<?php get_header(); ?>
+
 <?php
 $is_rtl = is_rtl();
 $lang = $is_rtl ? 'ar' : 'en';
 
-// Robust language detection as fallback
-if (isset($_GET['lang'])) {
-    $lang = (sanitize_text_field($_GET['lang']) == 'ar') ? 'ar' : 'en';
-    $is_rtl = ($lang == 'ar');
-} elseif (isset($_COOKIE['rifaq_lang'])) {
-    $lang = (sanitize_text_field($_COOKIE['rifaq_lang']) == 'ar') ? 'ar' : 'en';
-    $is_rtl = ($lang == 'ar');
-}
-
-// Force global RTL state for this request if Arabic is detected
-if ($lang == 'ar') {
-    global $wp_locale;
-    if ($wp_locale instanceof WP_Locale) {
-        $wp_locale->text_direction = 'rtl';
-    }
-}
-
-get_header(); ?>
-
-<?php
 // Translations Data (Simplified version of React 't' object)
 $t = array(
     'en' => array(
         'hero' => array(
-            'title' => __('Your Trusted Partner in', 'rifaq-movers'),
-            'accent' => __('Seamless Relocation', 'rifaq-movers'),
-            'desc' => __('TAREEQ SAREE MOVERS PACKERS FURNITURE TRANSFER L.L.C provides professional, reliable, and efficient moving services across the UAE.', 'rifaq-movers'),
-            'cta' => __('Our Services', 'rifaq-movers'),
-            'call' => __('Call Now 0528102191', 'rifaq-movers'),
-            'locations' => __('All Emirates - Dubai, Abu Dhabi, Sharjah & More', 'rifaq-movers')
+            'title' => __('Professional Movers & Packers', 'rifaq-movers'),
+            'accent' => __('in UAE', 'rifaq-movers'),
+            'locations' => __('Serving Dubai, Abu Dhabi & All Emirates', 'rifaq-movers'),
+            'desc' => __('Safe, reliable, and affordable moving services for your home and office. We handle your belongings with care.', 'rifaq-movers'),
+            'call' => __('Call Now: 0528102191', 'rifaq-movers'),
+            'cta' => __('View Services', 'rifaq-movers'),
         ),
         'services' => array(
-            'title' => __('Our Professional Services', 'rifaq-movers'),
-            'subtitle' => __('We offer a comprehensive range of moving and storage solutions designed to make your transition as smooth as possible.', 'rifaq-movers'),
+            'title' => __('Our Premium Services', 'rifaq-movers'),
+            'subtitle' => __('We offer a comprehensive range of moving and packing solutions tailored to your specific needs.', 'rifaq-movers'),
             'learn_more' => __('Learn More', 'rifaq-movers'),
             'items' => array(
-                array("title" => __("Residential Moving", "rifaq-movers"), "icon" => "truck", "desc" => __("Stress-free home relocation services tailored to your needs, ensuring your belongings reach safely.", "rifaq-movers")),
-                array("title" => __("Villa & Apartment Moving", "rifaq-movers"), "icon" => "home", "desc" => __("Expert relocation services for villas and apartments, ensuring a smooth transition to your new home.", "rifaq-movers")),
-                array("title" => __("Commercial Moving", "rifaq-movers"), "icon" => "package", "desc" => __("Efficient office and business relocation to minimize downtime and ensure business continuity.", "rifaq-movers")),
-                array("title" => __("Packing Services", "rifaq-movers"), "icon" => "shield", "desc" => __("Professional packing using high-quality materials to protect your items during transit.", "rifaq-movers")),
-                array("title" => __("Storage Solutions", "rifaq-movers"), "icon" => "clock", "desc" => __("Secure, climate-controlled storage facilities for short-term or long-term requirements.", "rifaq-movers")),
-                array("title" => __("Furniture Assembly", "rifaq-movers"), "icon" => "check-circle-2", "desc" => __("Expert assembly and disassembly of all types of furniture for a complete moving experience.", "rifaq-movers"))
+                array(
+                    "icon" => "home",
+                    "title" => __("Residential Moving", 'rifaq-movers'),
+                    "desc" => __("Hassle-free home relocation services with expert packing and careful handling of your household items.", 'rifaq-movers')
+                ),
+                array(
+                    "icon" => "building-2",
+                    "title" => __("Office Relocation", 'rifaq-movers'),
+                    "desc" => __("Efficient commercial moving solutions to minimize downtime and ensure a smooth transition for your business.", 'rifaq-movers')
+                ),
+                array(
+                    "icon" => "package-check",
+                    "title" => __("Expert Packing", 'rifaq-movers'),
+                    "desc" => __("High-quality packing materials and techniques to protect your fragile and valuable belongings during transit.", 'rifaq-movers')
+                ),
+                array(
+                    "icon" => "truck",
+                    "title" => __("Local & Long Distance", 'rifaq-movers'),
+                    "desc" => __("Whether you're moving across the street or across the Emirates, we provide reliable transportation.", 'rifaq-movers')
+                ),
+                array(
+                    "icon" => "warehouse",
+                    "title" => __("Storage Solutions", 'rifaq-movers'),
+                    "desc" => __("Secure and climate-controlled storage facilities for your short-term or long-term storage needs.", 'rifaq-movers')
+                ),
+                array(
+                    "icon" => "wrench",
+                    "title" => __("Furniture Assembly", 'rifaq-movers'),
+                    "desc" => __("Professional dismantling and reassembling of all types of furniture by our skilled technicians.", 'rifaq-movers')
+                )
             )
         ),
         'stats' => array(
-            array("num" => "10+", "label" => __("Years Experience", "rifaq-movers")),
-            array("num" => "5000+", "label" => __("Happy Clients", "rifaq-movers")),
-            array("num" => "50+", "label" => __("Professional Team", "rifaq-movers")),
-            array("num" => "100%", "label" => __("Satisfaction", "rifaq-movers"))
+            'exp' => __('Years Experience', 'rifaq-movers'),
+            'clients' => __('Happy Clients', 'rifaq-movers'),
+            'team' => __('Professional Team', 'rifaq-movers'),
+            'satisfaction' => __('Satisfaction', 'rifaq-movers'),
         ),
         'about' => array(
-            'title' => __('Why Choose TAREEQ SAREE MOVERS?', 'rifaq-movers'),
-            'desc' => __('With over a decade of experience in the UAE, we have perfected the art of relocation. TAREEQ SAREE MOVERS PACKERS FURNITURE TRANSFER L.L.C is trained to handle everything from delicate antiques to large office equipment with the utmost care.', 'rifaq-movers'),
+            'title' => __('Your Trusted Moving Partner in UAE', 'rifaq-movers'),
+            'desc' => __('With over a decade of experience, Rifaq Movers has established itself as a leader in the UAE moving industry. Our commitment to excellence and customer satisfaction drives everything we do.', 'rifaq-movers'),
+            'rating' => __('Average Customer Rating', 'rifaq-movers'),
             'points' => array(
-                __('Fully insured moving services', 'rifaq-movers'),
-                __('Professional and trained packing team', 'rifaq-movers'),
-                __('Modern fleet of GPS-tracked vehicles', 'rifaq-movers'),
-                __('Transparent pricing with no hidden costs', 'rifaq-movers')
+                __('Licensed & Insured Moving Company', 'rifaq-movers'),
+                __('Professional & Trained Moving Staff', 'rifaq-movers'),
+                __('Modern Fleet of GPS-Tracked Trucks', 'rifaq-movers'),
+                __('Transparent Pricing with No Hidden Costs', 'rifaq-movers')
             ),
-            'cta' => __('Learn More About Us', 'rifaq-movers'),
-            'rating' => __('Customer Rating', 'rifaq-movers')
+            'cta' => __('Get a Free Quote', 'rifaq-movers'),
         ),
         'coverage' => array(
-            'title' => __('Coverage Across UAE', 'rifaq-movers'),
-            'subtitle' => __('We serve all emirates across UAE with comprehensive coverage', 'rifaq-movers'),
-            'available' => __('Professional service available', 'rifaq-movers'),
+            'title' => __('Areas We Cover', 'rifaq-movers'),
+            'subtitle' => __('We provide professional moving and packing services across all major cities in the United Arab Emirates.', 'rifaq-movers'),
+            'available' => __('Full Service Available', 'rifaq-movers'),
             'cities' => array(
-                array("name" => __("Dubai", "rifaq-movers"), "icon" => "🏙️", "image" => "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1000&auto=format&fit=crop"),
-                array("name" => __("Abu Dhabi", "rifaq-movers"), "icon" => "🏛️", "image" => "https://images.unsplash.com/photo-1580674285054-bed31e145f59?q=80&w=1000&auto=format&fit=crop"),
-                array("name" => __("Sharjah", "rifaq-movers"), "icon" => "🌆", "image" => "https://images.unsplash.com/photo-1578895101408-1a36b834405b?q=80&w=1000&auto=format&fit=crop"),
-                array("name" => __("Ajman", "rifaq-movers"), "icon" => "🏘️", "image" => "https://images.unsplash.com/photo-1582650625119-3a31f8fa2699?q=80&w=1000&auto=format&fit=crop"),
-                array("name" => __("Ras Al Khaimah", "rifaq-movers"), "icon" => "⛰️", "image" => "https://images.unsplash.com/photo-1597659840241-37e2b9c2f55f?q=80&w=1000&auto=format&fit=crop"),
-                array("name" => __("Fujairah", "rifaq-movers"), "icon" => "🌊", "image" => "https://images.unsplash.com/photo-1544161513-0179fe746fd5?q=80&w=1000&auto=format&fit=crop")
+                array("name" => "Dubai", "icon" => "🏙️", "image" => "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1000&auto=format&fit=crop"),
+                array("name" => "Abu Dhabi", "icon" => "🏛️", "image" => "https://images.unsplash.com/photo-1580674285054-bed31e145f59?q=80&w=1000&auto=format&fit=crop"),
+                array("name" => "Sharjah", "icon" => "🌆", "image" => "https://images.unsplash.com/photo-1578895101408-1a36b834405b?q=80&w=1000&auto=format&fit=crop"),
+                array("name" => "Ajman", "icon" => "🏘️", "image" => "https://images.unsplash.com/photo-1582650625119-3a31f8fa2699?q=80&w=1000&auto=format&fit=crop"),
+                array("name" => "Ras Al Khaimah", "icon" => "⛰️", "image" => "https://images.unsplash.com/photo-1597659840241-37e2b9c2f55f?q=80&w=1000&auto=format&fit=crop"),
+                array("name" => "Fujairah", "icon" => "🌊", "image" => "https://images.unsplash.com/photo-1544161513-0179fe746fd5?q=80&w=1000&auto=format&fit=crop")
             )
         ),
         'testimonials' => array(
             'title' => __('What Our Clients Say', 'rifaq-movers'),
-            'subtitle' => __("Don't just take our word for it. Here's what our customers have to say about their experience with SwiftMovers.", 'rifaq-movers'),
+            'subtitle' => __('Read honest reviews from our satisfied customers across the UAE.', 'rifaq-movers'),
             'items' => array(
-                array("name" => __("Sarah Johnson", "rifaq-movers"), "role" => __("Home Owner", "rifaq-movers"), "content" => __("Swift Movers made my relocation so easy. Their team was professional, punctual, and handled everything with care.", "rifaq-movers")),
-                array("name" => __("Ahmed Al-Fayed", "rifaq-movers"), "role" => __("Business Manager", "rifaq-movers"), "content" => __("We moved our entire office over the weekend with zero issues. Highly recommend their commercial services.", "rifaq-movers")),
-                array("name" => __("Michael Chen", "rifaq-movers"), "role" => __("Villa Owner", "rifaq-movers"), "content" => __("Moving my villa was stressful, but TAREEQ SAREE MOVERS handled everything perfectly and with great care.", "rifaq-movers"))
+                array(
+                    "name" => __("Ahmed Hassan", 'rifaq-movers'),
+                    "role" => __("Villa Owner, Dubai", 'rifaq-movers'),
+                    "content" => __("Excellent service! The team was professional, punctual, and handled my furniture with great care. Highly recommended for villa moving.", 'rifaq-movers')
+                ),
+                array(
+                    "name" => __("Sarah Miller", 'rifaq-movers'),
+                    "role" => __("Apartment Resident, Abu Dhabi", 'rifaq-movers'),
+                    "content" => __("Rifaq Movers made my apartment move so easy. They packed everything perfectly and nothing was damaged. Great value for money.", 'rifaq-movers')
+                ),
+                array(
+                    "name" => __("Mohammed Ali", 'rifaq-movers'),
+                    "role" => __("Business Owner, Sharjah", 'rifaq-movers'),
+                    "content" => __("We used them for our office relocation. They were very efficient and we were back to work in no time. Professional team.", 'rifaq-movers')
+                )
             )
         ),
         'contact' => array(
-            'title' => __('Get a Free Quote', 'rifaq-movers'),
-            'subtitle' => __('Planning a move? Fill out the form below and our team will get back to you with a customized quote within 24 hours.', 'rifaq-movers'),
+            'title' => __('Get a Free Quote Today', 'rifaq-movers'),
+            'subtitle' => __('Contact us for a personalized moving estimate. Our team is ready to assist you with your next move.', 'rifaq-movers'),
             'call_us' => __('Call Us', 'rifaq-movers'),
             'email_us' => __('Email Us', 'rifaq-movers'),
-            'our_office' => __('Our Office', 'rifaq-movers'),
-            'address' => __('Business Bay, Dubai, UAE', 'rifaq-movers'),
-            'form' => array(
+            'office' => __('Our Office', 'rifaq-movers'),
+            'address' => __('Al Barsha, Dubai, UAE', 'rifaq-movers'),
+            'labels' => array(
                 'name' => __('Full Name', 'rifaq-movers'),
                 'phone' => __('Phone Number', 'rifaq-movers'),
                 'email' => __('Email Address', 'rifaq-movers'),
                 'service' => __('Service Type', 'rifaq-movers'),
-                'select' => __('-- Select Service --', 'rifaq-movers'),
-                'message' => __('Message (Optional)', 'rifaq-movers'),
+                'select' => __('Select a Service', 'rifaq-movers'),
+                'message' => __('Your Message', 'rifaq-movers'),
                 'submit' => __('Send Request', 'rifaq-movers'),
-                'success' => __("Message sent! We'll contact you soon.", 'rifaq-movers')
+                'success' => __('Thank you! Your message has been sent successfully. We will contact you soon.', 'rifaq-movers'),
+                'services' => array(
+                    'residential' => __('Residential Moving', 'rifaq-movers'),
+                    'villa' => __('Villa & Apartment Moving', 'rifaq-movers'),
+                    'commercial' => __('Office Relocation', 'rifaq-movers'),
+                    'packing' => __('Expert Packing', 'rifaq-movers'),
+                    'storage' => __('Storage Solutions', 'rifaq-movers'),
+                    'assembly' => __('Furniture Assembly', 'rifaq-movers'),
+                )
             )
         ),
         'urgent' => array(
-            'title' => __('Urgent Moving Request?', 'rifaq-movers'),
-            'subtitle' => __('We are available 24/7 across all Emirates in the UAE including Dubai, Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, and Fujairah.', 'rifaq-movers'),
-            'call' => __('Call Now: 0528102191', 'rifaq-movers')
+            'title' => __('Need an Urgent Move?', 'rifaq-movers'),
+            'subtitle' => __('We are available 24/7 for emergency moving services across the UAE.', 'rifaq-movers'),
+            'call' => __('Call Now: 0528102191', 'rifaq-movers'),
         )
     ),
     'ar' => array(
         'hero' => array(
-            'title' => 'شريكك الموثوق في',
-            'accent' => 'النقل السلس',
-            'desc' => 'تقدم شركة طريق سريع لنقل الأثاث وتغليف ونقل الأثاث ذ.م.م خدمات نقل احترافية وموثوقة وفعالة في جميع أنحاء الإمارات العربية المتحدة.',
-            'cta' => 'خدماتنا',
-            'call' => 'اتصل الآن 0528102191',
-            'locations' => 'جميع الإمارات - دبي، أبو ظبي، الشارقة والمزيد'
+            'title' => __('شركة رفاق لنقل الأثاث والتغليف', 'rifaq-movers'),
+            'accent' => __('في الإمارات', 'rifaq-movers'),
+            'locations' => __('نخدم دبي، أبو ظبي وجميع الإمارات', 'rifaq-movers'),
+            'desc' => __('خدمات نقل آمنة وموثوقة وبأسعار معقولة لمنزلك ومكتبك. نحن نتعامل مع ممتلكاتك بعناية فائقة.', 'rifaq-movers'),
+            'call' => __('اتصل الآن: 0528102191', 'rifaq-movers'),
+            'cta' => __('عرض الخدمات', 'rifaq-movers'),
         ),
         'services' => array(
-            'title' => 'خدماتنا الاحترافية',
-            'subtitle' => 'نحن نقدم مجموعة شاملة من حلول النقل والتخزين المصممة لجعل انتقالك سلسًا قدر الإمكان.',
-            'learn_more' => 'تعرف على المزيد',
+            'title' => __('خدماتنا المتميزة', 'rifaq-movers'),
+            'subtitle' => __('نحن نقدم مجموعة شاملة من حلول النقل والتغليف المصممة خصيصاً لتلبية احتياجاتك.', 'rifaq-movers'),
+            'learn_more' => __('تعرف على المزيد', 'rifaq-movers'),
             'items' => array(
-                array("title" => "نقل سكني", "icon" => "truck", "desc" => "خدمات نقل منزلية خالية من الإجهاد مصممة خصيصًا لاحتياجاتك، مما يضمن وصول ممتلكاتك بأمان."),
-                array("title" => "نقل الفلل والشقق", "icon" => "home", "desc" => "خدمات نقل متخصصة للفلل والشقق، مما يضمن انتقالاً سلساً إلى منزلك الجديد."),
-                array("title" => "نقل تجاري", "icon" => "package", "desc" => "نقل مكاتب وأعمال فعال لتقليل وقت التوقف وضمان استمرارية العمل."),
-                array("title" => "خدمات التغليف", "icon" => "shield", "desc" => "تغليف احترافي باستخدام مواد عالية الجودة لحماية أغراضك أثناء النقل."),
-                array("title" => "حلول التخزين", "icon" => "clock", "desc" => "مرافق تخزين آمنة ومتحكم في مناخها للمتطلبات قصيرة أو طويلة الأجل."),
-                array("title" => "تركيب الأثاث", "icon" => "check-circle-2", "desc" => "تفكيك وتركيب جميع أنواع الأثاث بخبرة لتجربة نقل كاملة.")
+                array(
+                    "icon" => "home",
+                    "title" => __("نقل سكني", 'rifaq-movers'),
+                    "desc" => __("خدمات نقل منزلية خالية من المتاعب مع تغليف خبير وتعامل دقيق مع أغراضك المنزلية.", 'rifaq-movers')
+                ),
+                array(
+                    "icon" => "building-2",
+                    "title" => __("نقل المكاتب", 'rifaq-movers'),
+                    "desc" => __("حلول نقل تجارية فعالة لتقليل وقت التوقف وضمان انتقال سلس لعملك.", 'rifaq-movers')
+                ),
+                array(
+                    "icon" => "package-check",
+                    "title" => __("تغليف خبير", 'rifaq-movers'),
+                    "desc" => __("مواد وتقنيات تغليف عالية الجودة لحماية ممتلكاتك الهشة والثمينة أثناء النقل.", 'rifaq-movers')
+                ),
+                array(
+                    "icon" => "truck",
+                    "title" => __("نقل محلي وبعيد", 'rifaq-movers'),
+                    "desc" => __("سواء كنت تنتقل عبر الشارع أو عبر الإمارات، فنحن نوفر لك وسيلة نقل موثوقة.", 'rifaq-movers')
+                ),
+                array(
+                    "icon" => "warehouse",
+                    "title" => __("حلول التخزين", 'rifaq-movers'),
+                    "desc" => __("مرافق تخزين آمنة ومتحكم في مناخها لاحتياجات التخزين قصيرة أو طويلة الأجل.", 'rifaq-movers')
+                ),
+                array(
+                    "icon" => "wrench",
+                    "title" => __("تركيب الأثاث", 'rifaq-movers'),
+                    "desc" => __("تفكيك وتركيب احترافي لجميع أنواع الأثاث من قبل فنيينا المهرة.", 'rifaq-movers')
+                )
             )
         ),
         'stats' => array(
-            array("num" => "10+", "label" => "سنوات خبرة"),
-            array("num" => "5000+", "label" => "عملاء سعداء"),
-            array("num" => "50+", "label" => "فريق محترف"),
-            array("num" => "100%", "label" => "رضا العملاء")
+            'exp' => __('سنوات الخبرة', 'rifaq-movers'),
+            'clients' => __('عملاء سعداء', 'rifaq-movers'),
+            'team' => __('فريق محترف', 'rifaq-movers'),
+            'satisfaction' => __('نسبة الرضا', 'rifaq-movers'),
         ),
         'about' => array(
-            'title' => 'لماذا تختار طريق سريع لنقل الأثاث؟',
-            'desc' => 'مع أكثر من عقد من الخبرة في الإمارات، أتقنا فن النقل. تم تدريب فريقنا للتعامل مع كل شيء من التحف الرقيقة إلى معدات المكاتب الكبيرة بأقصى قدر من العناية.',
+            'title' => __('شريكك الموثوق للنقل في الإمارات', 'rifaq-movers'),
+            'desc' => __('مع أكثر من عقد من الخبرة، أثبتت رفاق لنقل الأثاث مكانتها كشركة رائدة في صناعة النقل في الإمارات. التزامنا بالتميز ورضا العملاء هو ما يدفعنا في كل ما نقوم به.', 'rifaq-movers'),
+            'rating' => __('متوسط تقييم العملاء', 'rifaq-movers'),
             'points' => array(
-                'خدمات نقل مؤمنة بالكامل',
-                'فريق تغليف محترف ومدرب',
-                'أسطول حديث من المركبات المجهزة بنظام GPS',
-                'تسعير شفاف بدون تكاليف مخفية'
+                __('شركة نقل مرخصة ومؤمنة', 'rifaq-movers'),
+                __('طاقم نقل محترف ومدرب', 'rifaq-movers'),
+                __('أسطول حديث من الشاحنات المجهزة بنظام GPS', 'rifaq-movers'),
+                __('تسعير شفاف بدون تكاليف مخفية', 'rifaq-movers')
             ),
-            'cta' => 'تعرف علينا أكثر',
-            'rating' => 'تقييم العملاء'
+            'cta' => __('احصل على عرض سعر مجاني', 'rifaq-movers'),
         ),
         'coverage' => array(
-            'title' => 'تغطية في جميع أنحاء الإمارات',
-            'subtitle' => 'نحن نخدم جميع الإمارات في جميع أنحاء الدولة بتغطية شاملة',
-            'available' => 'خدمة احترافية متوفرة',
+            'title' => __('المناطق التي نغطيها', 'rifaq-movers'),
+            'subtitle' => __('نحن نقدم خدمات نقل وتغليف احترافية في جميع المدن الرئيسية في الإمارات العربية المتحدة.', 'rifaq-movers'),
+            'available' => __('خدمة كاملة متاحة', 'rifaq-movers'),
             'cities' => array(
                 array("name" => "دبي", "icon" => "🏙️", "image" => "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1000&auto=format&fit=crop"),
                 array("name" => "أبو ظبي", "icon" => "🏛️", "image" => "https://images.unsplash.com/photo-1580674285054-bed31e145f59?q=80&w=1000&auto=format&fit=crop"),
@@ -164,36 +214,56 @@ $t = array(
             )
         ),
         'testimonials' => array(
-            'title' => 'ماذا يقول عملاؤنا',
-            'subtitle' => 'لا تكتفِ بكلمتنا فقط. إليك ما يقوله عملاؤنا عن تجربتهم معنا.',
+            'title' => __('ماذا يقول عملاؤنا', 'rifaq-movers'),
+            'subtitle' => __('اقرأ تقييمات صادقة من عملائنا الراضين في جميع أنحاء الإمارات.', 'rifaq-movers'),
             'items' => array(
-                array("name" => "سارة جونسون", "role" => "صاحبة منزل", "content" => "جعلت شركة طريق سريع انتقالي سهلاً للغاية. كان فريقهم محترفًا ومنضبطًا وتعاملوا مع كل شيء بعناية."),
-                array("name" => "أحمد الفايد", "role" => "مدير أعمال", "content" => "نقلنا مكتبنا بالكامل خلال عطلة نهاية الأسبوع دون أي مشاكل. نوصي بشدة بخدماتهم التجارية."),
-                array("name" => "مايكل تشين", "role" => "صاحب فيلا", "content" => "كان نقل فيلتي مرهقاً، لكن طريق سريع تعاملت مع كل شيء بشكل مثالي وبمنتهى العناية.")
+                array(
+                    "name" => __("أحمد حسن", 'rifaq-movers'),
+                    "role" => __("صاحب فيلا، دبي", 'rifaq-movers'),
+                    "content" => __("خدمة ممتازة! كان الفريق محترفاً ومنضبطاً وتعامل مع أثاثي بعناية كبيرة. نوصي به بشدة لنقل الفلل.", 'rifaq-movers')
+                ),
+                array(
+                    "name" => __("سارة ميلر", 'rifaq-movers'),
+                    "role" => __("مقيمة في شقة، أبو ظبي", 'rifaq-movers'),
+                    "content" => __("جعلت رفاق لنقل الأثاث انتقالي سهلاً للغاية. لقد قاموا بتغليف كل شيء بشكل مثالي ولم يتضرر شيء. قيمة رائعة مقابل المال.", 'rifaq-movers')
+                ),
+                array(
+                    "name" => __("محمد علي", 'rifaq-movers'),
+                    "role" => __("صاحب عمل، الشارقة", 'rifaq-movers'),
+                    "content" => __("استخدمناهم لنقل مكتبنا. كانوا فعالين للغاية وعدنا للعمل في وقت قصير. فريق محترف.", 'rifaq-movers')
+                )
             )
         ),
         'contact' => array(
-            'title' => 'احصل على عرض سعر مجاني',
-            'subtitle' => 'تخطط للانتقال؟ املأ النموذج أدناه وسيعاود فريقنا الاتصال بك مع عرض سعر مخصص خلال 24 ساعة.',
-            'call_us' => 'اتصل بنا',
-            'email_us' => 'راسلنا',
-            'our_office' => 'مكتبنا',
-            'address' => 'بزنس باي، دبي، الإمارات العربية المتحدة',
-            'form' => array(
-                'name' => 'الاسم الكامل',
-                'phone' => 'رقم الهاتف',
-                'email' => 'البريد الإلكتروني',
-                'service' => 'نوع الخدمة',
-                'select' => '-- اختر الخدمة --',
-                'message' => 'الرسالة (اختياري)',
-                'submit' => 'إرسال الطلب',
-                'success' => 'تم الإرسال! سنتصل بك قريباً.'
+            'title' => __('احصل على عرض سعر مجاني اليوم', 'rifaq-movers'),
+            'subtitle' => __('اتصل بنا للحصول على تقدير مخصص للنقل. فريقنا مستعد لمساعدتك في انتقالك القادم.', 'rifaq-movers'),
+            'call_us' => __('اتصل بنا', 'rifaq-movers'),
+            'email_us' => __('راسلنا', 'rifaq-movers'),
+            'office' => __('مكتبنا', 'rifaq-movers'),
+            'address' => __('البرشا، دبي، الإمارات العربية المتحدة', 'rifaq-movers'),
+            'labels' => array(
+                'name' => __('الاسم الكامل', 'rifaq-movers'),
+                'phone' => __('رقم الهاتف', 'rifaq-movers'),
+                'email' => __('البريد الإلكتروني', 'rifaq-movers'),
+                'service' => __('نوع الخدمة', 'rifaq-movers'),
+                'select' => __('اختر الخدمة', 'rifaq-movers'),
+                'message' => __('رسالتك', 'rifaq-movers'),
+                'submit' => __('إرسال الطلب', 'rifaq-movers'),
+                'success' => __('شكراً لك! تم إرسال رسالتك بنجاح. سنتصل بك قريباً.', 'rifaq-movers'),
+                'services' => array(
+                    'residential' => __('نقل سكني', 'rifaq-movers'),
+                    'villa' => __('نقل الفلل والشقق', 'rifaq-movers'),
+                    'commercial' => __('نقل المكاتب', 'rifaq-movers'),
+                    'packing' => __('تغليف خبير', 'rifaq-movers'),
+                    'storage' => __('حلول التخزين', 'rifaq-movers'),
+                    'assembly' => __('تركيب الأثاث', 'rifaq-movers'),
+                )
             )
         ),
         'urgent' => array(
-            'title' => 'طلب نقل عاجل؟',
-            'subtitle' => 'نحن متواجدون على مدار الساعة طوال أيام الأسبوع في جميع الإمارات بما في ذلك دبي، أبو ظبي، الشارقة، عجمان، رأس الخيمة، والفجيرة.',
-            'call' => 'اتصل الآن: 0528102191'
+            'title' => __('هل تحتاج إلى نقل عاجل؟', 'rifaq-movers'),
+            'subtitle' => __('نحن متواجدون على مدار الساعة طوال أيام الأسبوع لخدمات النقل الطارئة في جميع أنحاء الإمارات.', 'rifaq-movers'),
+            'call' => __('اتصل الآن: 0528102191', 'rifaq-movers'),
         )
     )
 );
@@ -214,16 +284,6 @@ $current = $t[$lang];
         </div>
         <div class="container relative z-10 mt-16">
             <div class="max-w-2xl text-white <?php echo $is_rtl ? 'text-right' : 'text-left'; ?> animate-fade-in-right">
-                <!-- Direct View Language Switcher -->
-                <div class="flex items-center gap-4 mb-8">
-                    <a href="?lang=en" class="px-4 py-2 rounded-full text-sm font-bold transition-all <?php echo !$is_rtl ? 'bg-accent text-white shadow-lg scale-110' : 'bg-white/10 text-white/80 hover:bg-white/20'; ?>">
-                        ENGLISH
-                    </a>
-                    <a href="?lang=ar" class="px-4 py-2 rounded-full text-sm font-bold transition-all font-serif <?php echo $is_rtl ? 'bg-accent text-white shadow-lg scale-110' : 'bg-white/10 text-white/80 hover:bg-white/20'; ?>">
-                        العربية
-                    </a>
-                </div>
-
                 <h1 class="text-5xl md:text-7xl mb-4 text-white leading-tight">
                     <?php echo $current['hero']['title']; ?> <span class="text-accent"><?php echo $current['hero']['accent']; ?></span>
                 </h1>
@@ -280,12 +340,30 @@ $current = $t[$lang];
         <div class="absolute top-0 <?php echo $is_rtl ? 'left-0' : 'right-0'; ?> w-1/3 h-full bg-accent/10 <?php echo $is_rtl ? '-skew-x-12 -translate-x-1/2' : 'skew-x-12 translate-x-1/2'; ?>"></div>
         <div class="container relative z-10">
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
-                <?php foreach ($current['stats'] as $stat) : ?>
-                    <div class="text-center">
-                        <div class="text-4xl md:text-5xl font-bold text-accent mb-2"><?php echo $stat['num']; ?></div>
-                        <div class="text-gray-300 uppercase tracking-widest text-sm font-medium"><?php echo $stat['label']; ?></div>
+                <div class="text-center">
+                    <div class="text-4xl md:text-5xl font-bold text-accent mb-2">10+</div>
+                    <div class="text-gray-300 uppercase tracking-widest text-sm font-medium">
+                        <?php echo $current['stats']['exp']; ?>
                     </div>
-                <?php endforeach; ?>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl md:text-5xl font-bold text-accent mb-2">5000+</div>
+                    <div class="text-gray-300 uppercase tracking-widest text-sm font-medium">
+                        <?php echo $current['stats']['clients']; ?>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl md:text-5xl font-bold text-accent mb-2">50+</div>
+                    <div class="text-gray-300 uppercase tracking-widest text-sm font-medium">
+                        <?php echo $current['stats']['team']; ?>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl md:text-5xl font-bold text-accent mb-2">100%</div>
+                    <div class="text-gray-300 uppercase tracking-widest text-sm font-medium">
+                        <?php echo $current['stats']['satisfaction']; ?>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -377,7 +455,7 @@ $current = $t[$lang];
                 </p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <?php foreach ($current['testimonials']['items'] as $t_item) : ?>
+                <?php foreach ($current['testimonials']['items'] as $t) : ?>
                     <div class="card">
                         <div class="flex gap-1 mb-4">
                             <?php for ($i = 0; $i < 5; $i++) : ?>
@@ -385,15 +463,15 @@ $current = $t[$lang];
                             <?php endfor; ?>
                         </div>
                         <p class="text-gray-600 italic mb-6 leading-relaxed">
-                            "<?php echo $t_item['content']; ?>"
+                            "<?php echo $t['content']; ?>"
                         </p>
                         <div class="flex items-center gap-4">
                             <div class="size-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">
-                                <?php echo mb_substr($t_item['name'], 0, 1); ?>
+                                <?php echo mb_substr($t['name'], 0, 1); ?>
                             </div>
                             <div>
-                                <div class="font-bold text-primary"><?php echo $t_item['name']; ?></div>
-                                <div class="text-sm text-gray-500"><?php echo $t_item['role']; ?></div>
+                                <div class="font-bold text-primary"><?php echo $t['name']; ?></div>
+                                <div class="text-sm text-gray-500"><?php echo $t['role']; ?></div>
                             </div>
                         </div>
                     </div>
@@ -436,7 +514,7 @@ $current = $t[$lang];
                                     <i data-lucide="map-pin" class="size-6 text-accent"></i>
                                 </div>
                                 <div>
-                                    <div class="text-sm text-gray-400"><?php echo $current['contact']['our_office']; ?></div>
+                                    <div class="text-sm text-gray-400"><?php echo $current['contact']['office']; ?></div>
                                     <div class="text-lg font-medium"><?php echo $current['contact']['address']; ?></div>
                                 </div>
                             </div>
@@ -447,39 +525,39 @@ $current = $t[$lang];
                             <input type="hidden" name="action" value="contact_form_submit">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div class="space-y-2">
-                                    <label class="text-sm font-semibold text-gray-700"><?php echo $current['contact']['form']['name']; ?></label>
+                                    <label class="text-sm font-semibold text-gray-700"><?php echo $current['contact']['labels']['name']; ?></label>
                                     <input type="text" name="name" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all" placeholder="John Doe">
                                 </div>
                                 <div class="space-y-2">
-                                    <label class="text-sm font-semibold text-gray-700"><?php echo $current['contact']['form']['phone']; ?></label>
+                                    <label class="text-sm font-semibold text-gray-700"><?php echo $current['contact']['labels']['phone']; ?></label>
                                     <input type="tel" name="phone" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all" placeholder="0528102191">
                                 </div>
                             </div>
                             <div class="space-y-2">
-                                <label class="text-sm font-semibold text-gray-700"><?php echo $current['contact']['form']['email']; ?></label>
+                                <label class="text-sm font-semibold text-gray-700"><?php echo $current['contact']['labels']['email']; ?></label>
                                 <input type="email" name="email" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all" placeholder="your@email.com">
                             </div>
                             <div class="space-y-2">
-                                <label class="text-sm font-semibold text-gray-700"><?php echo $current['contact']['form']['service']; ?></label>
+                                <label class="text-sm font-semibold text-gray-700"><?php echo $current['contact']['labels']['service']; ?></label>
                                 <select name="serviceType" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all bg-white">
-                                    <option value=""><?php echo $current['contact']['form']['select']; ?></option>
-                                    <?php foreach ($current['services']['items'] as $s_item) : ?>
-                                        <option value="<?php echo esc_attr($s_item['title']); ?>"><?php echo $s_item['title']; ?></option>
+                                    <option value=""><?php echo $current['contact']['labels']['select']; ?></option>
+                                    <?php foreach ($current['contact']['labels']['services'] as $key => $label) : ?>
+                                        <option value="<?php echo esc_attr($key); ?>"><?php echo esc_html($label); ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
                             <div class="space-y-2">
-                                <label class="text-sm font-semibold text-gray-700"><?php echo $current['contact']['form']['message']; ?></label>
+                                <label class="text-sm font-semibold text-gray-700"><?php echo $current['contact']['labels']['message']; ?></label>
                                 <textarea rows="4" name="message" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all resize-none" placeholder="..."></textarea>
                             </div>
                             
                             <?php if (isset($_GET['status']) && $_GET['status'] == 'success') : ?>
                                 <div class="p-4 bg-green-50 text-green-700 rounded-xl text-center font-medium">
-                                    <?php echo $current['contact']['form']['success']; ?>
+                                    <?php echo $current['contact']['labels']['success']; ?>
                                 </div>
                             <?php endif; ?>
 
-                            <button type="submit" class="btn-accent w-full py-4 text-lg"><?php echo $current['contact']['form']['submit']; ?></button>
+                            <button type="submit" class="btn-accent w-full py-4 text-lg"><?php echo $current['contact']['labels']['submit']; ?></button>
                         </form>
                     </div>
                 </div>
