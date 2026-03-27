@@ -3,8 +3,8 @@
 <?php
 // Robust language detection
 $lang = 'en';
-if (isset($_COOKIE['rifaq_lang'])) {
-    $lang = ($_COOKIE['rifaq_lang'] === 'ar') ? 'ar' : 'en';
+if (isset($_COOKIE['tareeq_lang'])) {
+    $lang = ($_COOKIE['tareeq_lang'] === 'ar') ? 'ar' : 'en';
 } elseif (is_rtl()) {
     $lang = 'ar';
 }
@@ -15,7 +15,7 @@ $is_rtl = ($lang === 'ar');
 $t = array(
     'en' => array(
         'hero' => array(
-            'title' => __('Professional Movers & Packers', 'rifaq-movers'),
+            'title' => __('TAREEQ SAREE MOVERS', 'rifaq-movers'),
             'accent' => __('in UAE', 'rifaq-movers'),
             'locations' => __('Serving Dubai, Abu Dhabi & All Emirates', 'rifaq-movers'),
             'desc' => __('Safe, reliable, and affordable moving services for your home and office. We handle your belongings with care.', 'rifaq-movers'),
@@ -67,7 +67,7 @@ $t = array(
         ),
         'about' => array(
             'title' => __('Your Trusted Moving Partner in UAE', 'rifaq-movers'),
-            'desc' => __('With over a decade of experience, Rifaq Movers has established itself as a leader in the UAE moving industry. Our commitment to excellence and customer satisfaction drives everything we do.', 'rifaq-movers'),
+            'desc' => __('With over a decade of experience, TAREEQ SAREE MOVERS has established itself as a leader in the UAE moving industry. Our commitment to excellence and customer satisfaction drives everything we do.', 'rifaq-movers'),
             'rating' => __('Average Customer Rating', 'rifaq-movers'),
             'points' => array(
                 __('Licensed & Insured Moving Company', 'rifaq-movers'),
@@ -82,8 +82,8 @@ $t = array(
             'subtitle' => __('We provide professional moving and packing services across all major cities in the United Arab Emirates.', 'rifaq-movers'),
             'available' => __('Full Service Available', 'rifaq-movers'),
             'cities' => array(
-                array("name" => "Dubai", "icon" => "🏙️", "image" => "https://images.unsplash.com/photo-1549194382-2467d1a7359e?q=80&w=1000&auto=format&fit=crop"),
-                array("name" => "Abu Dhabi", "icon" => "🏛️", "image" => "https://images.unsplash.com/photo-1580674285054-bed31e145f59?q=80&w=1000&auto=format&fit=crop"),
+                array("name" => "Dubai", "icon" => "🏙️", "image" => "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2070&auto=format&fit=crop"),
+                array("name" => "Abu Dhabi", "icon" => "🏛️", "image" => "https://images.unsplash.com/photo-1586769852836-bc069f19e1b6?q=80&w=2070&auto=format&fit=crop"),
                 array("name" => "Sharjah", "icon" => "🌆", "image" => "https://images.unsplash.com/photo-1578895101408-1a36b834405b?q=80&w=1000&auto=format&fit=crop"),
                 array("name" => "Ajman", "icon" => "🏘️", "image" => "https://images.unsplash.com/photo-1582650625119-3a31f8fa2699?q=80&w=1000&auto=format&fit=crop"),
                 array("name" => "Ras Al Khaimah", "icon" => "⛰️", "image" => "https://images.unsplash.com/photo-1597659840241-37e2b9c2f55f?q=80&w=1000&auto=format&fit=crop"),
@@ -102,7 +102,7 @@ $t = array(
                 array(
                     "name" => __("Sarah Miller", 'rifaq-movers'),
                     "role" => __("Apartment Resident, Abu Dhabi", 'rifaq-movers'),
-                    "content" => __("Rifaq Movers made my apartment move so easy. They packed everything perfectly and nothing was damaged. Great value for money.", 'rifaq-movers')
+                    "content" => __("TAREEQ SAREE MOVERS made my apartment move so easy. They packed everything perfectly and nothing was damaged. Great value for money.", 'rifaq-movers')
                 ),
                 array(
                     "name" => __("Mohammed Ali", 'rifaq-movers'),
@@ -145,7 +145,7 @@ $t = array(
     ),
     'ar' => array(
         'hero' => array(
-            'title' => __('شركة رفاق لنقل الأثاث والتغليف', 'rifaq-movers'),
+            'title' => __('شركة طريق سريع لنقل الأثاث والتغليف', 'rifaq-movers'),
             'accent' => __('في الإمارات', 'rifaq-movers'),
             'locations' => __('نخدم دبي، أبو ظبي وجميع الإمارات', 'rifaq-movers'),
             'desc' => __('خدمات نقل آمنة وموثوقة وبأسعار معقولة لمنزلك ومكتبك. نحن نتعامل مع ممتلكاتك بعناية فائقة.', 'rifaq-movers'),
@@ -197,7 +197,7 @@ $t = array(
         ),
         'about' => array(
             'title' => __('شريكك الموثوق للنقل في الإمارات', 'rifaq-movers'),
-            'desc' => __('مع أكثر من عقد من الخبرة، أثبتت رفاق لنقل الأثاث مكانتها كشركة رائدة في صناعة النقل في الإمارات. التزامنا بالتميز ورضا العملاء هو ما يدفعنا في كل ما نقوم به.', 'rifaq-movers'),
+            'desc' => __('مع أكثر من عقد من الخبرة، أثبتت طريق سريع لنقل الأثاث مكانتها كشركة رائدة في صناعة النقل في الإمارات. التزامنا بالتميز ورضا العملاء هو ما يدفعنا في كل ما نقوم به.', 'rifaq-movers'),
             'rating' => __('متوسط تقييم العملاء', 'rifaq-movers'),
             'points' => array(
                 __('شركة نقل مرخصة ومؤمنة', 'rifaq-movers'),
@@ -212,8 +212,8 @@ $t = array(
             'subtitle' => __('نحن نقدم خدمات نقل وتغليف احترافية في جميع المدن الرئيسية في الإمارات العربية المتحدة.', 'rifaq-movers'),
             'available' => __('خدمة كاملة متاحة', 'rifaq-movers'),
             'cities' => array(
-                array("name" => "دبي", "icon" => "🏙️", "image" => "https://images.unsplash.com/photo-1549194382-2467d1a7359e?q=80&w=1000&auto=format&fit=crop"),
-                array("name" => "أبو ظبي", "icon" => "🏛️", "image" => "https://images.unsplash.com/photo-1580674285054-bed31e145f59?q=80&w=1000&auto=format&fit=crop"),
+                array("name" => "دبي", "icon" => "🏙️", "image" => "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2070&auto=format&fit=crop"),
+                array("name" => "أبو ظبي", "icon" => "🏛️", "image" => "https://images.unsplash.com/photo-1586769852836-bc069f19e1b6?q=80&w=2070&auto=format&fit=crop"),
                 array("name" => "الشارقة", "icon" => "🌆", "image" => "https://images.unsplash.com/photo-1578895101408-1a36b834405b?q=80&w=1000&auto=format&fit=crop"),
                 array("name" => "عجمان", "icon" => "🏘️", "image" => "https://images.unsplash.com/photo-1582650625119-3a31f8fa2699?q=80&w=1000&auto=format&fit=crop"),
                 array("name" => "رأس الخيمة", "icon" => "⛰️", "image" => "https://images.unsplash.com/photo-1597659840241-37e2b9c2f55f?q=80&w=1000&auto=format&fit=crop"),
@@ -232,7 +232,7 @@ $t = array(
                 array(
                     "name" => __("سارة ميلر", 'rifaq-movers'),
                     "role" => __("مقيمة في شقة، أبو ظبي", 'rifaq-movers'),
-                    "content" => __("جعلت رفاق لنقل الأثاث انتقالي سهلاً للغاية. لقد قاموا بتغليف كل شيء بشكل مثالي ولم يتضرر شيء. قيمة رائعة مقابل المال.", 'rifaq-movers')
+                    "content" => __("جعلت طريق سريع لنقل الأثاث انتقالي سهلاً للغاية. لقد قاموا بتغليف كل شيء بشكل مثالي ولم يتضرر شيء. قيمة رائعة مقابل المال.", 'rifaq-movers')
                 ),
                 array(
                     "name" => __("محمد علي", 'rifaq-movers'),
@@ -381,8 +381,8 @@ $current = $t[$lang];
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <div class="relative <?php echo $is_rtl ? 'order-2' : 'order-1'; ?> animate-fade-in-right">
                     <img 
-                        src="https://images.unsplash.com/photo-1520038410233-7141be7e6f97?q=80&w=2070&auto=format&fit=crop" 
-                        alt="Movers and Packers Team" 
+                        src="https://images.unsplash.com/photo-1580674285054-bed31e145f59?q=80&w=2070&auto=format&fit=crop" 
+                        alt="Movers and Packers Abu Dhabi" 
                         class="rounded-2xl shadow-2xl w-full h-[400px] object-cover"
                         referrerpolicy="no-referrer"
                     />

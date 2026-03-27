@@ -7,10 +7,10 @@
                         <div class="bg-accent p-2 rounded-lg">
                             <i data-lucide="truck" class="size-6 text-white"></i>
                         </div>
-                        <span class="text-xl font-serif font-bold text-white"><?php echo __('Rifaq Movers', 'rifaq-movers'); ?></span>
+                        <span class="text-xl font-serif font-bold text-white"><?php echo __('TAREEQ SAREE MOVERS', 'rifaq-movers'); ?></span>
                     </div>
                     <p class="text-gray-400 leading-relaxed">
-                        <?php echo __('Rifaq Movers & Packers provides premium moving and storage solutions across the UAE since 2012.', 'rifaq-movers'); ?>
+                        <?php echo __('TAREEQ SAREE MOVERS & Packers provides premium moving and storage solutions across the UAE since 2012.', 'rifaq-movers'); ?>
                     </p>
                     <div class="flex gap-4">
                         <a href="#" class="bg-white/10 p-3 rounded-xl hover:bg-accent transition-colors"><i data-lucide="facebook" class="size-5"></i></a>
@@ -62,15 +62,15 @@
                 </div>
             </div>
             <div class="mt-20 pt-8 border-t border-white/10 text-center text-gray-500">
-                <p>&copy; <?php echo date('Y'); ?> <?php echo __('Rifaq Movers', 'rifaq-movers'); ?>. <?php echo __('All rights reserved.', 'rifaq-movers'); ?></p>
+                <p>&copy; <?php echo date('Y'); ?> <?php echo __('TAREEQ SAREE MOVERS', 'rifaq-movers'); ?>. <?php echo __('All rights reserved.', 'rifaq-movers'); ?></p>
             </div>
         </div>
     </footer>
 
     <?php
     $is_rtl_manual = is_rtl();
-    if (isset($_COOKIE['rifaq_lang'])) {
-        $is_rtl_manual = ($_COOKIE['rifaq_lang'] === 'ar');
+    if (isset($_COOKIE['tareeq_lang'])) {
+        $is_rtl_manual = ($_COOKIE['tareeq_lang'] === 'ar');
     }
     ?>
 

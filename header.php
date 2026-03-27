@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <script>
         window.switchLanguage = function(lang) {
-            document.cookie = 'rifaq_lang=' + lang + '; path=/; max-age=' + (86400 * 30);
+            document.cookie = 'tareeq_lang=' + lang + '; path=/; max-age=' + (86400 * 30);
             const url = new URL(window.location.href);
             url.searchParams.delete('lang');
             window.location.href = url.pathname + url.search;
@@ -18,8 +18,8 @@
 </head>
 <?php
 $is_rtl_manual = is_rtl();
-if (isset($_COOKIE['rifaq_lang'])) {
-    $is_rtl_manual = ($_COOKIE['rifaq_lang'] === 'ar');
+if (isset($_COOKIE['tareeq_lang'])) {
+    $is_rtl_manual = ($_COOKIE['tareeq_lang'] === 'ar');
 }
 ?>
 <body <?php body_class('min-h-screen flex flex-col'); ?> dir="<?php echo $is_rtl_manual ? 'rtl' : 'ltr'; ?>">
@@ -34,7 +34,7 @@ if (isset($_COOKIE['rifaq_lang'])) {
                         <i data-lucide="truck" class="size-6 text-white"></i>
                     </div>
                     <span id="company-name" class="text-xl font-serif font-bold text-white uppercase tracking-wider">
-                        <?php echo __('Rifaq Movers', 'rifaq-movers'); ?>
+                        <?php echo __('TAREEQ SAREE MOVERS', 'rifaq-movers'); ?>
                     </span>
                 </div>
 
@@ -56,7 +56,7 @@ if (isset($_COOKIE['rifaq_lang'])) {
                         <div class="flex items-center gap-3">
                             <!-- Simplified Language Switcher -->
                             <button 
-                                onclick="switchLanguage('<?php echo $is_rtl_manual ? 'en' : 'ar'; ?>'); document.getElementById('google_translate_element').style.display='block';" 
+                                onclick="switchLanguage('<?php echo $is_rtl_manual ? 'en' : 'ar'; ?>')" 
                                 class="flex items-center gap-2 bg-white/10 backdrop-blur-md px-5 py-2.5 rounded-full border border-white/20 text-white hover:bg-accent hover:border-accent transition-all font-bold group relative overflow-hidden"
                             >
                                 <div class="absolute inset-0 bg-accent/10 group-hover:bg-transparent transition-colors"></div>
@@ -87,7 +87,7 @@ if (isset($_COOKIE['rifaq_lang'])) {
                     <!-- Simplified Mobile Language Switcher -->
                     <div class="flex items-center justify-center py-2 border-y border-gray-100">
                         <button 
-                            onclick="switchLanguage('<?php echo $is_rtl_manual ? 'en' : 'ar'; ?>'); document.getElementById('google_translate_element').style.display='block';" 
+                            onclick="switchLanguage('<?php echo $is_rtl_manual ? 'en' : 'ar'; ?>')" 
                             class="flex items-center gap-3 bg-accent px-8 py-4 rounded-2xl text-white font-bold shadow-lg hover:bg-accent/90 transition-all w-full justify-center animate-pulse"
                         >
                             <i data-lucide="globe" class="size-6"></i>

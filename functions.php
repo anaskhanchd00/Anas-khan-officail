@@ -1,6 +1,6 @@
 <?php
 /**
- * Rifaq Movers functions and definitions
+ * TAREEQ SAREE MOVERS functions and definitions
  */
 
 /**
@@ -30,7 +30,7 @@ function rifaq_movers_handle_language_switch() {
     if (isset($_GET['lang'])) {
         $lang = sanitize_text_field($_GET['lang']);
         // Set cookie with both PHP and JS-friendly settings
-        setcookie('rifaq_lang', $lang, time() + (86400 * 30), "/");
+        setcookie('tareeq_lang', $lang, time() + (86400 * 30), "/");
         
         // Redirect to the same page without the lang parameter
         $redirect_url = remove_query_arg('lang');
@@ -41,8 +41,8 @@ function rifaq_movers_handle_language_switch() {
 add_action('template_redirect', 'rifaq_movers_handle_language_switch');
 
 function rifaq_movers_set_locale($locale) {
-    if (isset($_COOKIE['rifaq_lang'])) {
-        if ($_COOKIE['rifaq_lang'] == 'ar') {
+    if (isset($_COOKIE['tareeq_lang'])) {
+        if ($_COOKIE['tareeq_lang'] == 'ar') {
             return 'ar';
         } else {
             return 'en_US';
