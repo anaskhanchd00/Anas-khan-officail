@@ -67,28 +67,34 @@
         </div>
     </footer>
 
+    <?php
+    $is_rtl_manual = is_rtl();
+    if (isset($_COOKIE['rifaq_lang'])) {
+        $is_rtl_manual = ($_COOKIE['rifaq_lang'] === 'ar');
+    }
+    ?>
+
     <!-- Floating Language Switcher (Mobile Only) -->
-    <div class="fixed bottom-6 <?php echo is_rtl() ? 'right-6' : 'left-6'; ?> z-50 lg:hidden">
-        <div class="flex flex-col gap-2">
-            <button onclick="switchLanguage('en')" class="bg-white text-primary p-3 rounded-full shadow-2xl border border-gray-200 font-bold text-xs hover:bg-gray-50 transition-all <?php echo !is_rtl() ? 'ring-2 ring-accent' : ''; ?>">
-                EN
-            </button>
-            <button onclick="switchLanguage('ar')" class="bg-white text-primary p-3 rounded-full shadow-2xl border border-gray-200 font-bold text-xs hover:bg-gray-50 transition-all font-serif <?php echo is_rtl() ? 'ring-2 ring-accent' : ''; ?>">
-                عربي
-            </button>
-        </div>
+    <div class="fixed bottom-6 <?php echo $is_rtl_manual ? 'right-6' : 'left-6'; ?> z-50 lg:hidden">
+        <button 
+            onclick="switchLanguage('<?php echo $is_rtl_manual ? 'en' : 'ar'; ?>'); document.getElementById('google_translate_element').style.display='block';" 
+            class="bg-accent text-white p-5 rounded-full shadow-2xl border border-white/20 flex items-center justify-center hover:scale-110 transition-all animate-bounce"
+            title="<?php echo $is_rtl_manual ? 'Switch to English' : 'التحويل إلى العربية'; ?>"
+        >
+            <i data-lucide="globe" class="size-7"></i>
+        </button>
     </div>
 
     <!-- Floating Call Button -->
-    <a href="tel:+971528102191" class="fixed bottom-6 <?php echo is_rtl() ? 'left-6' : 'right-6'; ?> z-50 bg-accent text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-all group md:bottom-8 md:<?php echo is_rtl() ? 'left-8' : 'right-8'; ?>">
+    <a href="tel:+971528102191" class="fixed bottom-6 <?php echo $is_rtl_manual ? 'left-6' : 'right-6'; ?> z-50 bg-accent text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-all group md:bottom-8 md:<?php echo $is_rtl_manual ? 'left-8' : 'right-8'; ?>">
         <i data-lucide="phone" class="size-7 md:size-8"></i>
-        <span class="absolute <?php echo is_rtl() ? 'left-full ml-4' : 'right-full mr-4'; ?> top-1/2 -translate-y-1/2 bg-primary text-white px-4 py-2 rounded-xl text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap hidden md:block">
+        <span class="absolute <?php echo $is_rtl_manual ? 'left-full ml-4' : 'right-full mr-4'; ?> top-1/2 -translate-y-1/2 bg-primary text-white px-4 py-2 rounded-xl text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap hidden md:block">
             <?php echo __('Call Now: 0528102191', 'rifaq-movers'); ?>
         </span>
     </a>
 
     <!-- Side Call Button (Desktop Only) -->
-    <div class="fixed top-1/2 -translate-y-1/2 <?php echo is_rtl() ? 'left-0' : 'right-0'; ?> z-50 hidden lg:block">
+    <div class="fixed top-1/2 -translate-y-1/2 <?php echo $is_rtl_manual ? 'left-0' : 'right-0'; ?> z-50 hidden lg:block">
         <a href="tel:+971528102191" class="bg-accent text-white py-4 px-2 rounded-l-xl flex flex-col items-center gap-2 shadow-xl hover:pl-4 transition-all group">
             <i data-lucide="phone" class="size-6"></i>
             <span class="[writing-mode:vertical-rl] font-bold tracking-widest uppercase text-xs">

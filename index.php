@@ -1,10 +1,17 @@
 <?php get_header(); ?>
 
 <?php
-$is_rtl = is_rtl();
-$lang = $is_rtl ? 'ar' : 'en';
+// Robust language detection
+$lang = 'en';
+if (isset($_COOKIE['rifaq_lang'])) {
+    $lang = ($_COOKIE['rifaq_lang'] === 'ar') ? 'ar' : 'en';
+} elseif (is_rtl()) {
+    $lang = 'ar';
+}
 
-// Translations Data (Simplified version of React 't' object)
+$is_rtl = ($lang === 'ar');
+
+// Translations Data
 $t = array(
     'en' => array(
         'hero' => array(
@@ -374,9 +381,9 @@ $current = $t[$lang];
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <div class="relative <?php echo $is_rtl ? 'order-2' : 'order-1'; ?> animate-fade-in-right">
                     <img 
-                        src="https://images.unsplash.com/photo-1520038410233-7141be7e6f97?q=80&w=2074&auto=format&fit=crop" 
-                        alt="Moving Team" 
-                        class="rounded-2xl shadow-2xl"
+                        src="https://images.unsplash.com/photo-1520038410233-7141be7e6f97?q=80&w=2070&auto=format&fit=crop" 
+                        alt="Movers and Packers Team" 
+                        class="rounded-2xl shadow-2xl w-full h-[400px] object-cover"
                         referrerpolicy="no-referrer"
                     />
                     <div class="absolute -bottom-8 <?php echo $is_rtl ? '-left-8' : '-right-8'; ?> bg-white p-8 rounded-2xl shadow-xl hidden md:block">
@@ -506,7 +513,7 @@ $current = $t[$lang];
                                 </div>
                                 <div>
                                     <div class="text-sm text-gray-400"><?php echo $current['contact']['email_us']; ?></div>
-                                    <div class="text-lg font-medium">ramoversandpackers33@gmail.com</div>
+                                    <div class="text-lg font-medium">sareetareeq@gmail.com</div>
                                 </div>
                             </div>
                             <div class="flex items-center gap-4">

@@ -44,10 +44,35 @@ const App: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    // Google Translate Initialization Function
+    // @ts-ignore
+    window.googleTranslateElementInit = () => {
+      // @ts-ignore
+      new window.google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,ar',
+        layout: 0 // SIMPLE
+      }, 'google_translate_element');
+    };
+
+    // Google Translate Script
+    const gtScript = document.createElement('script');
+    gtScript.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    gtScript.async = true;
+    document.body.appendChild(gtScript);
+
+    return () => {
+      if (document.body.contains(gtScript)) {
+        document.body.removeChild(gtScript);
+      }
+    };
+  }, []);
+
   const t = {
     en: {
-      company: "TAREEQ SAREE MOVERS",
-      fullName: "TAREEQ SAREE MOVERS PACKERS FURNITURE TRANSFER L.L.C",
+      company: "RIFAQ MOVERS",
+      fullName: "RIFAQ MOVERS & PACKERS L.L.C",
       locations: "All Emirates - Dubai, Abu Dhabi, Sharjah & More",
       urgentCall: "Urgent Call: 0528102191",
       callNow: "Call Now 0528102191",
@@ -96,8 +121,8 @@ const App: React.FC = () => {
         { number: "100%", label: "Satisfaction" }
       ],
       about: {
-        title: "Why Choose TAREEQ SAREE MOVERS?",
-        desc: "With over a decade of experience in the UAE, we have perfected the art of relocation. TAREEQ SAREE MOVERS PACKERS FURNITURE TRANSFER L.L.C is trained to handle everything from delicate antiques to large office equipment with the utmost care.",
+        title: "Why Choose RIFAQ MOVERS?",
+        desc: "With over a decade of experience in the UAE, we have perfected the art of relocation. RIFAQ MOVERS & PACKERS L.L.C is trained to handle everything from delicate antiques to large office equipment with the utmost care.",
         points: [
           "Fully insured moving services",
           "Professional and trained packing team",
@@ -145,7 +170,7 @@ const App: React.FC = () => {
         }
       },
       footer: {
-        desc: "TAREEQ SAREE MOVERS PACKERS FURNITURE TRANSFER L.L.C provides premium moving and storage solutions across the UAE since 2012.",
+        desc: "RIFAQ MOVERS & PACKERS L.L.C provides premium moving and storage solutions across the UAE since 2012.",
         links: "Quick Links",
         ourServices: "Our Services",
         newsletter: "Newsletter",
@@ -164,8 +189,8 @@ const App: React.FC = () => {
       }
     },
     ar: {
-      company: "طريق سريع لنقل الأثاث",
-      fullName: "طريق سريع لنقل الأثاث وتغليف ونقل الأثاث ذ.م.م",
+      company: "رفاق لنقل الأثاث",
+      fullName: "رفاق لنقل وتغليف الأثاث ذ.م.م",
       locations: "جميع الإمارات - دبي، أبو ظبي، الشارقة والمزيد",
       urgentCall: "اتصال عاجل: 0528102191",
       callNow: "اتصل الآن 0528102191",
@@ -180,7 +205,7 @@ const App: React.FC = () => {
       hero: {
         title: "شريكك الموثوق في",
         titleAccent: "النقل السلس",
-        description: "تقدم شركة طريق سريع لنقل الأثاث وتغليف ونقل الأثاث ذ.م.م خدمات نقل احترافية وموثوقة وفعالة في جميع أنحاء الإمارات العربية المتحدة.",
+        description: "تقدم شركة رفاق لنقل وتغليف الأثاث ذ.م.م خدمات نقل احترافية وموثوقة وفعالة في جميع أنحاء الإمارات العربية المتحدة.",
         cta: "خدماتنا"
       },
       coverage: {
@@ -203,7 +228,7 @@ const App: React.FC = () => {
           { title: "نقل الفلل والشقق", desc: "خدمات نقل متخصصة للفلل والشقق، مما يضمن انتقالاً سلساً إلى منزلك الجديد." },
           { title: "نقل تجاري", desc: "نقل مكاتب وأعمال فعال لتقليل وقت التوقف وضمان استمرارية العمل." },
           { title: "خدمات التغليف", desc: "تغليف احترافي باستخدام مواد عالية الجودة لحماية أغراضك أثناء النقل." },
-          { title: "حلول التخزين", desc: "مرافق تخجبن آمنة ومتحكم في مناخها للمتطلبات قصيرة أو طويلة الأجل." },
+          { title: "حلول التخزين", desc: "مرافق تخزين آمنة ومتحكم في مناخها للمتطلبات قصيرة أو طويلة الأجل." },
           { title: "تركيب الأثاث", desc: "تفكيك وتركيب جميع أنواع الأثاث بخبرة لتجربة نقل كاملة." }
         ]
       },
@@ -214,7 +239,7 @@ const App: React.FC = () => {
         { number: "100%", label: "رضا العملاء" }
       ],
       about: {
-        title: "لماذا تختار طريق سريع لنقل الأثاث؟",
+        title: "لماذا تختار رفاق لنقل الأثاث؟",
         desc: "مع أكثر من عقد من الخبرة في الإمارات، أتقنا فن النقل. تم تدريب فريقنا للتعامل مع كل شيء من التحف الرقيقة إلى معدات المكاتب الكبيرة بأقصى قدر من العناية.",
         points: [
           "خدمات نقل مؤمنة بالكامل",
@@ -229,9 +254,9 @@ const App: React.FC = () => {
         title: "ماذا يقول عملاؤنا",
         subtitle: "لا تكتفِ بكلمتنا فقط. إليك ما يقوله عملاؤنا عن تجربتهم معنا.",
         items: [
-          { name: "سارة جونسون", role: "صاحبة منزل", content: "جعلت شركة طريق سريع انتقالي سهلاً للغاية. كان فريقهم محترفًا ومنضبطًا وتعاملوا مع كل شيء بعناية." },
+          { name: "سارة جونسون", role: "صاحبة منزل", content: "جعلت شركة رفاق انتقالي سهلاً للغاية. كان فريقهم محترفًا ومنضبطًا وتعاملوا مع كل شيء بعناية." },
           { name: "أحمد الفايد", role: "مدير أعمال", content: "نقلنا مكتبنا بالكامل خلال عطلة نهاية الأسبوع دون أي مشاكل. نوصي بشدة بخدماتهم التجارية." },
-          { name: "مايكل تشين", role: "صاحب فيلا", content: "كان نقل فيلتي مرهقاً، لكن طريق سريع تعاملت مع كل شيء بشكل مثالي وبمنتهى العناية." }
+          { name: "مايكل تشين", role: "صاحب فيلا", content: "كان نقل فيلتي مرهقاً، لكن رفاق تعاملت مع كل شيء بشكل مثالي وبمنتهى العناية." }
         ]
       },
       contact: {
@@ -259,11 +284,11 @@ const App: React.FC = () => {
           call: "اتصل بنا",
           email: "راسلنا",
           office: "مكتبنا",
-          address: "بزنس باي، دبي، الإمارات العربية المتحدة"
+          address: "البرشا، دبي، الإمارات العربية المتحدة"
         }
       },
       footer: {
-        desc: "تقدم شركة طريق سريع لنقل الأثاث وتغليف ونقل الأثاث ذ.م.م حلول نقل وتخزين متميزة في جميع أنحاء الإمارات منذ عام 2012.",
+        desc: "تقدم شركة رفاق لنقل وتغليف الأثاث ذ.م.م حلول نقل وتخزين متميزة في جميع أنحاء الإمارات منذ عام 2012.",
         links: "روابط سريعة",
         ourServices: "خدماتنا",
         newsletter: "النشرة الإخبارية",
@@ -343,6 +368,9 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col" dir={isRtl ? 'rtl' : 'ltr'}>
+      {/* Google Translate Hidden Element */}
+      <div id="google_translate_element" className="fixed top-24 right-4 z-[60] bg-white p-2 rounded-xl shadow-2xl border border-gray-200" style={{ display: 'none' }}></div>
+
       {/* Navigation - Integrated Header */}
       <div className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'p-4 pointer-events-none' : 'p-0 pointer-events-auto'}`}>
         <nav className={`transition-all duration-300 ${isScrolled ? 'container mx-auto pointer-events-auto rounded-2xl bg-white/90 backdrop-blur-md shadow-lg py-3 px-6' : 'w-full bg-black/20 backdrop-blur-sm py-5 border-b border-white/10 px-8'}`}>
@@ -367,11 +395,16 @@ const App: React.FC = () => {
               ))}
               <div className="flex items-center gap-3">
                 <button 
-                  onClick={toggleLang}
-                  className={`flex items-center gap-1 px-3 py-1 rounded border ${isScrolled ? 'border-primary text-primary' : 'border-white text-white'} hover:bg-accent hover:border-accent hover:text-white transition-all text-sm font-bold`}
+                  onClick={() => {
+                    toggleLang();
+                    const el = document.getElementById('google_translate_element');
+                    if (el) el.style.display = 'block';
+                  }}
+                  className={`flex items-center gap-2 px-5 py-2.5 rounded-full border shadow-md transition-all font-bold group relative overflow-hidden ${isScrolled ? 'border-primary text-primary bg-white' : 'border-white text-white bg-white/10'} hover:bg-accent hover:border-accent hover:text-white hover:scale-105 active:scale-95`}
                 >
-                  <Globe className="size-4" />
-                  <span>{lang === 'en' ? 'العربية' : 'English'}</span>
+                  <div className="absolute inset-0 bg-accent/10 group-hover:bg-transparent transition-colors"></div>
+                  <Globe className="size-5 animate-pulse group-hover:animate-none" />
+                  <span className="relative z-10">{lang === 'en' ? 'العربية' : 'English'}</span>
                 </button>
                 <a href="tel:+971528102191" className="btn-accent flex items-center gap-2 whitespace-nowrap">
                   <Phone className="size-4" />
@@ -410,13 +443,18 @@ const App: React.FC = () => {
                       {label}
                     </a>
                   ))}
-                  <div className="flex items-center gap-4 mb-2">
+                  <div className="flex flex-col gap-3 mb-2">
                     <button 
-                      onClick={() => { toggleLang(); setIsMenuOpen(false); }}
-                      className="flex items-center gap-2 px-4 py-2 rounded-xl border border-primary text-primary hover:bg-accent hover:border-accent hover:text-white transition-all w-full justify-center font-bold"
+                      onClick={() => { 
+                        toggleLang(); 
+                        setIsMenuOpen(false); 
+                        const el = document.getElementById('google_translate_element');
+                        if (el) el.style.display = 'block';
+                      }}
+                      className="flex items-center gap-3 px-6 py-4 rounded-2xl bg-accent text-white shadow-lg hover:bg-accent/90 transition-all w-full justify-center font-bold text-lg animate-pulse"
                     >
-                      <Globe className="size-5" />
-                      <span>{lang === 'en' ? 'اللغة: العربية' : 'Language: English'}</span>
+                      <Globe className="size-6" />
+                      <span>{lang === 'en' ? 'Switch to Arabic (التحويل للعربية)' : 'Switch to English (التحويل للإنجليزية)'}</span>
                     </button>
                   </div>
                   <a href="tel:+971528102191" className="btn-accent w-full flex items-center justify-center gap-2">
@@ -523,9 +561,9 @@ const App: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className={`relative ${isRtl ? 'order-2' : 'order-1'}`}>
               <img 
-                src="https://images.unsplash.com/photo-1520038410233-7141be7e6f97?q=80&w=2074&auto=format&fit=crop" 
-                alt="Moving Team" 
-                className="rounded-2xl shadow-2xl"
+                src="https://images.unsplash.com/photo-1520038410233-7141be7e6f97?q=80&w=2070&auto=format&fit=crop" 
+                alt="Movers and Packers Team" 
+                className="rounded-2xl shadow-2xl w-full h-[400px] object-cover"
                 referrerPolicy="no-referrer"
               />
               <div className={`absolute -bottom-8 ${isRtl ? '-left-8' : '-right-8'} bg-white p-8 rounded-2xl shadow-xl hidden md:block`}>
@@ -663,7 +701,7 @@ const App: React.FC = () => {
                     </div>
                     <div>
                       <div className="text-sm text-gray-400">{current.contact.info.email}</div>
-                      <div className="text-lg font-medium">ramoversandpackers33@gmail.com</div>
+                      <div className="text-lg font-medium">sareetareeq@gmail.com</div>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
@@ -714,7 +752,7 @@ const App: React.FC = () => {
                       onChange={handleInputChange}
                       required
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all" 
-                      placeholder="ramoversandpackers33@gmail.com" 
+                      placeholder="sareetareeq@gmail.com" 
                     />
                   </div>
                   <div className="space-y-2">
@@ -884,8 +922,29 @@ const App: React.FC = () => {
         </div>
       </footer>
 
-      {/* Floating Call Button */}
+      {/* Google Translate Fallback (Hidden by default) */}
+      <div id="google_translate_element" className="fixed top-24 right-4 z-[60] bg-white p-2 rounded-xl shadow-2xl border border-gray-200" style={{ display: 'none' }}></div>
+
+      {/* Floating Call & Translate Buttons */}
       <div className={`fixed bottom-8 ${isRtl ? 'left-8' : 'right-8'} z-50 flex flex-col gap-4`}>
+        <motion.button
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          onClick={() => {
+            toggleLang();
+            const el = document.getElementById('google_translate_element');
+            if (el) el.style.display = 'block';
+          }}
+          className="bg-accent text-white p-5 rounded-full shadow-2xl flex items-center justify-center group relative animate-bounce"
+          title={lang === 'en' ? 'Translate to Arabic' : 'Translate to English'}
+        >
+          <div className={`absolute ${isRtl ? 'right-16' : 'left-16'} bg-white text-primary px-4 py-2 rounded-xl shadow-2xl text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap hidden md:block border border-accent`}>
+            {lang === 'en' ? 'Translate to Arabic' : 'Translate to English'}
+          </div>
+          <Globe className="size-9" />
+        </motion.button>
         <motion.a
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -895,7 +954,7 @@ const App: React.FC = () => {
           className="bg-accent text-white p-4 rounded-full shadow-2xl flex items-center justify-center group relative"
           title={current.callNow}
         >
-          <div className="absolute -left-32 bg-white text-primary px-3 py-1 rounded shadow-lg text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap hidden md:block">
+          <div className={`absolute ${isRtl ? 'right-14' : 'left-14'} bg-white text-primary px-3 py-1 rounded shadow-lg text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap hidden md:block`}>
             {current.callNow}
           </div>
           <Phone className="size-8" />

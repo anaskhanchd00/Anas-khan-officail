@@ -33,8 +33,8 @@ async function startServer() {
       });
 
       const mailOptions = {
-        from: `"${name}" <${process.env.SMTP_USER || "anaskhan52650@gmail.com"}>`,
-        to: "anaskhan52650@gmail.com",
+        from: `"${name}" <${process.env.SMTP_USER || "sareetareeq@gmail.com"}>`,
+        to: "sareetareeq@gmail.com",
         replyTo: email,
         subject: `New Moving Quote Request from ${name}`,
         text: `

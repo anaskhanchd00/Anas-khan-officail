@@ -91,14 +91,6 @@ function rifaq_movers_scripts() {
                 });
             }
 
-            // Language Switcher Helper
-            window.switchLanguage = function(lang) {
-                document.cookie = 'rifaq_lang=' + lang + '; path=/; max-age=' + (86400 * 30);
-                const url = new URL(window.location.href);
-                url.searchParams.delete('lang');
-                window.location.href = url.pathname + url.search;
-            };
-            
             // Scroll handler for header
             const header = document.getElementById('main-header');
             const companyName = document.getElementById('company-name');
@@ -185,7 +177,7 @@ function handle_contact_form_submit() {
         $service = sanitize_text_field($_POST['serviceType']);
         $message = sanitize_textarea_field($_POST['message']);
 
-        $to = 'anaskhan52650@gmail.com';
+        $to = 'sareetareeq@gmail.com';
         $subject = 'New Moving Quote Request from ' . $name;
         
         $body = "New Quote Request Details:\n\n";

@@ -6,9 +6,23 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <script>
+        window.switchLanguage = function(lang) {
+            document.cookie = 'rifaq_lang=' + lang + '; path=/; max-age=' + (86400 * 30);
+            const url = new URL(window.location.href);
+            url.searchParams.delete('lang');
+            window.location.href = url.pathname + url.search;
+        };
+    </script>
     <?php wp_head(); ?>
 </head>
-<body <?php body_class('min-h-screen flex flex-col'); ?> dir="<?php echo is_rtl() ? 'rtl' : 'ltr'; ?>">
+<?php
+$is_rtl_manual = is_rtl();
+if (isset($_COOKIE['rifaq_lang'])) {
+    $is_rtl_manual = ($_COOKIE['rifaq_lang'] === 'ar');
+}
+?>
+<body <?php body_class('min-h-screen flex flex-col'); ?> dir="<?php echo $is_rtl_manual ? 'rtl' : 'ltr'; ?>">
     <?php wp_body_open(); ?>
 
     <!-- Navigation - Integrated Header -->
@@ -40,17 +54,14 @@
                     <?php endforeach; ?>
                     
                         <div class="flex items-center gap-3">
-                            <!-- Language Switcher -->
-                            <div class="flex items-center gap-2 bg-white/10 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20">
-                                <i data-lucide="languages" class="size-4 text-accent"></i>
-                                <button onclick="switchLanguage('en')" class="text-xs font-bold <?php echo !is_rtl() ? 'text-accent' : 'text-white/60'; ?> hover:text-accent transition-colors">EN</button>
-                                <span class="text-white/20">|</span>
-                                <button onclick="switchLanguage('ar')" class="text-xs font-bold <?php echo is_rtl() ? 'text-accent' : 'text-white/60'; ?> hover:text-accent transition-colors font-serif">عربي</button>
-                            </div>
-                            
-                            <!-- Google Translate Trigger -->
-                            <button onclick="document.getElementById('google_translate_element').style.display='block'; this.style.display='none';" class="bg-white/10 backdrop-blur-md p-2 rounded-full border border-white/20 text-white hover:bg-white/20 transition-all" title="Full Page Auto-Translate">
-                                <i data-lucide="globe" class="size-4"></i>
+                            <!-- Simplified Language Switcher -->
+                            <button 
+                                onclick="switchLanguage('<?php echo $is_rtl_manual ? 'en' : 'ar'; ?>'); document.getElementById('google_translate_element').style.display='block';" 
+                                class="flex items-center gap-2 bg-white/10 backdrop-blur-md px-5 py-2.5 rounded-full border border-white/20 text-white hover:bg-accent hover:border-accent transition-all font-bold group relative overflow-hidden"
+                            >
+                                <div class="absolute inset-0 bg-accent/10 group-hover:bg-transparent transition-colors"></div>
+                                <i data-lucide="globe" class="size-4 animate-pulse group-hover:animate-none relative z-10"></i>
+                                <span class="text-sm relative z-10"><?php echo $is_rtl_manual ? 'ENGLISH' : 'العربية'; ?></span>
                             </button>
                             
                             <a href="tel:+971528102191" class="bg-accent text-white px-4 py-2 rounded-xl flex items-center gap-2 whitespace-nowrap hover:bg-accent/90 transition-all font-bold">
@@ -73,12 +84,14 @@
                         <a href="#<?php echo $id; ?>" class="text-lg font-medium text-primary hover:text-accent"><?php echo $label; ?></a>
                     <?php endforeach; ?>
                     
-                    <!-- Mobile Language Switcher -->
-                    <div class="flex items-center justify-center gap-4 py-2 border-y border-gray-100">
-                        <button onclick="switchLanguage('en')" class="text-sm font-bold <?php echo !is_rtl() ? 'text-accent' : 'text-gray-500'; ?> hover:text-accent transition-colors">ENGLISH</button>
-                        <button onclick="switchLanguage('ar')" class="text-sm font-bold <?php echo is_rtl() ? 'text-accent' : 'text-gray-500'; ?> hover:text-accent transition-colors font-serif">العربية</button>
-                        <button onclick="document.getElementById('google_translate_element').style.display='block'; this.closest('#mobile-menu').classList.add('hidden');" class="text-gray-500 hover:text-accent transition-colors">
-                            <i data-lucide="globe" class="size-5"></i>
+                    <!-- Simplified Mobile Language Switcher -->
+                    <div class="flex items-center justify-center py-2 border-y border-gray-100">
+                        <button 
+                            onclick="switchLanguage('<?php echo $is_rtl_manual ? 'en' : 'ar'; ?>'); document.getElementById('google_translate_element').style.display='block';" 
+                            class="flex items-center gap-3 bg-accent px-8 py-4 rounded-2xl text-white font-bold shadow-lg hover:bg-accent/90 transition-all w-full justify-center animate-pulse"
+                        >
+                            <i data-lucide="globe" class="size-6"></i>
+                            <span><?php echo $is_rtl_manual ? 'Switch to English' : 'التحويل إلى العربية'; ?></span>
                         </button>
                     </div>
 
