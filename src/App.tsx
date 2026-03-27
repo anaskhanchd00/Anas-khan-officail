@@ -71,8 +71,8 @@ const App: React.FC = () => {
 
   const t = {
     en: {
-      company: "RIFAQ MOVERS",
-      fullName: "RIFAQ MOVERS & PACKERS L.L.C",
+      company: "TAREEQ SAREE MOVERS",
+      fullName: "TAREEQ SAREE MOVERS & PACKERS L.L.C",
       locations: "All Emirates - Dubai, Abu Dhabi, Sharjah & More",
       urgentCall: "Urgent Call: 0528102191",
       callNow: "Call Now 0528102191",
@@ -94,8 +94,8 @@ const App: React.FC = () => {
         title: "Coverage Across UAE",
         subtitle: "We serve all emirates across UAE with comprehensive coverage",
         items: [
-          { city: "Dubai", desc: "Professional service available", icon: "🏙️", image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1000&auto=format&fit=crop" },
-          { city: "Abu Dhabi", desc: "Professional service available", icon: "🏛️", image: "https://images.unsplash.com/photo-1580674285054-bed31e145f59?q=80&w=1000&auto=format&fit=crop" },
+          { city: "Dubai", desc: "Professional service available", icon: "🏙️", image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2070&auto=format&fit=crop" },
+          { city: "Abu Dhabi", desc: "Professional service available", icon: "🏛️", image: "https://images.unsplash.com/photo-1586769852836-bc069f19e1b6?q=80&w=2070&auto=format&fit=crop" },
           { city: "Sharjah", desc: "Professional service available", icon: "🌆", image: "https://images.unsplash.com/photo-1578895101408-1a36b834405b?q=80&w=1000&auto=format&fit=crop" },
           { city: "Ajman", desc: "Professional service available", icon: "🏘️", image: "https://images.unsplash.com/photo-1582650625119-3a31f8fa2699?q=80&w=1000&auto=format&fit=crop" },
           { city: "Ras Al Khaimah", desc: "Professional service available", icon: "⛰️", image: "https://images.unsplash.com/photo-1597659840241-37e2b9c2f55f?q=80&w=1000&auto=format&fit=crop" },
@@ -121,8 +121,8 @@ const App: React.FC = () => {
         { number: "100%", label: "Satisfaction" }
       ],
       about: {
-        title: "Why Choose RIFAQ MOVERS?",
-        desc: "With over a decade of experience in the UAE, we have perfected the art of relocation. RIFAQ MOVERS & PACKERS L.L.C is trained to handle everything from delicate antiques to large office equipment with the utmost care.",
+        title: "Why Choose TAREEQ SAREE MOVERS?",
+        desc: "With over a decade of experience in the UAE, we have perfected the art of relocation. TAREEQ SAREE MOVERS & PACKERS L.L.C is trained to handle everything from delicate antiques to large office equipment with the utmost care.",
         points: [
           "Fully insured moving services",
           "Professional and trained packing team",
@@ -170,7 +170,7 @@ const App: React.FC = () => {
         }
       },
       footer: {
-        desc: "RIFAQ MOVERS & PACKERS L.L.C provides premium moving and storage solutions across the UAE since 2012.",
+        desc: "TAREEQ SAREE MOVERS & PACKERS L.L.C provides premium moving and storage solutions across the UAE since 2012.",
         links: "Quick Links",
         ourServices: "Our Services",
         newsletter: "Newsletter",
@@ -189,8 +189,8 @@ const App: React.FC = () => {
       }
     },
     ar: {
-      company: "رفاق لنقل الأثاث",
-      fullName: "رفاق لنقل وتغليف الأثاث ذ.م.م",
+      company: "طريق سريع لنقل الأثاث",
+      fullName: "طريق سريع لنقل وتغليف الأثاث ذ.م.م",
       locations: "جميع الإمارات - دبي، أبو ظبي، الشارقة والمزيد",
       urgentCall: "اتصال عاجل: 0528102191",
       callNow: "اتصل الآن 0528102191",
@@ -205,15 +205,15 @@ const App: React.FC = () => {
       hero: {
         title: "شريكك الموثوق في",
         titleAccent: "النقل السلس",
-        description: "تقدم شركة رفاق لنقل وتغليف الأثاث ذ.م.م خدمات نقل احترافية وموثوقة وفعالة في جميع أنحاء الإمارات العربية المتحدة.",
+        description: "تقدم شركة طريق سريع لنقل وتغليف الأثاث ذ.م.م خدمات نقل احترافية وموثوقة وفعالة في جميع أنحاء الإمارات العربية المتحدة.",
         cta: "خدماتنا"
       },
       coverage: {
         title: "تغطية في جميع أنحاء الإمارات",
         subtitle: "نحن نخدم جميع الإمارات في جميع أنحاء الدولة بتغطية شاملة",
         items: [
-          { city: "دبي", desc: "خدمة احترافية متوفرة", icon: "🏙️", image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1000&auto=format&fit=crop" },
-          { city: "أبو ظبي", desc: "خدمة احترافية متوفرة", icon: "🏛️", image: "https://images.unsplash.com/photo-1580674285054-bed31e145f59?q=80&w=1000&auto=format&fit=crop" },
+          { city: "دبي", desc: "خدمة احترافية متوفرة", icon: "🏙️", image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2070&auto=format&fit=crop" },
+          { city: "أبو ظبي", desc: "خدمة احترافية متوفرة", icon: "🏛️", image: "https://images.unsplash.com/photo-1586769852836-bc069f19e1b6?q=80&w=2070&auto=format&fit=crop" },
           { city: "الشارقة", desc: "خدمة احترافية متوفرة", icon: "🌆", image: "https://images.unsplash.com/photo-1578895101408-1a36b834405b?q=80&w=1000&auto=format&fit=crop" },
           { city: "عجمان", desc: "خدمة احترافية متوفرة", icon: "🏘️", image: "https://images.unsplash.com/photo-1582650625119-3a31f8fa2699?q=80&w=1000&auto=format&fit=crop" },
           { city: "رأس الخيمة", desc: "خدمة احترافية متوفرة", icon: "⛰️", image: "https://images.unsplash.com/photo-1597659840241-37e2b9c2f55f?q=80&w=1000&auto=format&fit=crop" },
@@ -239,7 +239,7 @@ const App: React.FC = () => {
         { number: "100%", label: "رضا العملاء" }
       ],
       about: {
-        title: "لماذا تختار رفاق لنقل الأثاث؟",
+        title: "لماذا تختار طريق سريع لنقل الأثاث؟",
         desc: "مع أكثر من عقد من الخبرة في الإمارات، أتقنا فن النقل. تم تدريب فريقنا للتعامل مع كل شيء من التحف الرقيقة إلى معدات المكاتب الكبيرة بأقصى قدر من العناية.",
         points: [
           "خدمات نقل مؤمنة بالكامل",
@@ -254,9 +254,9 @@ const App: React.FC = () => {
         title: "ماذا يقول عملاؤنا",
         subtitle: "لا تكتفِ بكلمتنا فقط. إليك ما يقوله عملاؤنا عن تجربتهم معنا.",
         items: [
-          { name: "سارة جونسون", role: "صاحبة منزل", content: "جعلت شركة رفاق انتقالي سهلاً للغاية. كان فريقهم محترفًا ومنضبطًا وتعاملوا مع كل شيء بعناية." },
+          { name: "سارة جونسون", role: "صاحبة منزل", content: "جعلت شركة طريق سريع انتقالي سهلاً للغاية. كان فريقهم محترفًا ومنضبطًا وتعاملوا مع كل شيء بعناية." },
           { name: "أحمد الفايد", role: "مدير أعمال", content: "نقلنا مكتبنا بالكامل خلال عطلة نهاية الأسبوع دون أي مشاكل. نوصي بشدة بخدماتهم التجارية." },
-          { name: "مايكل تشين", role: "صاحب فيلا", content: "كان نقل فيلتي مرهقاً، لكن رفاق تعاملت مع كل شيء بشكل مثالي وبمنتهى العناية." }
+          { name: "مايكل تشين", role: "صاحب فيلا", content: "كان نقل فيلتي مرهقاً، لكن طريق سريع تعاملت مع كل شيء بشكل مثالي وبمنتهى العناية." }
         ]
       },
       contact: {
@@ -288,7 +288,7 @@ const App: React.FC = () => {
         }
       },
       footer: {
-        desc: "تقدم شركة رفاق لنقل وتغليف الأثاث ذ.م.م حلول نقل وتخزين متميزة في جميع أنحاء الإمارات منذ عام 2012.",
+        desc: "تقدم شركة طريق سريع لنقل وتغليف الأثاث ذ.م.م حلول نقل وتخزين متميزة في جميع أنحاء الإمارات منذ عام 2012.",
         links: "روابط سريعة",
         ourServices: "خدماتنا",
         newsletter: "النشرة الإخبارية",
@@ -561,8 +561,8 @@ const App: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className={`relative ${isRtl ? 'order-2' : 'order-1'}`}>
               <img 
-                src="https://images.unsplash.com/photo-1520038410233-7141be7e6f97?q=80&w=2070&auto=format&fit=crop" 
-                alt="Movers and Packers Team" 
+                src="https://images.unsplash.com/photo-1580674285054-bed31e145f59?q=80&w=2070&auto=format&fit=crop" 
+                alt="Movers and Packers Abu Dhabi" 
                 className="rounded-2xl shadow-2xl w-full h-[400px] object-cover"
                 referrerPolicy="no-referrer"
               />
