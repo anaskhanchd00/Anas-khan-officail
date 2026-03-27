@@ -68,8 +68,14 @@
     </footer>
 
     <?php
-    $is_rtl_manual = is_rtl();
-    if (isset($_COOKIE['tareeq_lang'])) {
+    $is_rtl_manual = false; // Default to English (LTR)
+    
+    // 1. Check URL parameter (highest priority)
+    if (isset($_GET['lang'])) {
+        $is_rtl_manual = ($_GET['lang'] === 'ar');
+    } 
+    // 2. Check Cookie
+    else if (isset($_COOKIE['tareeq_lang'])) {
         $is_rtl_manual = ($_COOKIE['tareeq_lang'] === 'ar');
     }
     ?>

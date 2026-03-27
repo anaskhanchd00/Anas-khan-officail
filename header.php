@@ -8,16 +8,51 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <script>
         window.switchLanguage = function(lang) {
-            const url = new URL(window.location.href);
-            url.searchParams.set('lang', lang);
-            window.location.href = url.toString();
+            console.log('Switching language to:', lang);
+            // Set cookie for both PHP and JS
+            const d = new Date();
+            d.setTime(d.getTime() + (30*24*60*60*1000));
+            let expires = "expires="+ d.toUTCString();
+            document.cookie = "tareeq_lang=" + lang + ";" + expires + ";path=/;SameSite=Lax";
+            
+            // Try to trigger Google Translate if available as fallback
+            try {
+                const googleTranslateEl = document.getElementById('google_translate_element');
+                if (googleTranslateEl) {
+                    const select = googleTranslateEl.querySelector('select.goog-te-combo');
+                    if (select) {
+                        select.value = lang;
+                        select.dispatchEvent(new Event('change'));
+                    }
+                }
+            } catch (e) {
+                console.log('Google Translate trigger failed', e);
+            }
+
+            // Reload with lang parameter and cache buster to bypass potential caching
+            try {
+                const url = new URL(window.location.href);
+                url.searchParams.set('lang', lang);
+                url.searchParams.set('t', new Date().getTime());
+                window.location.href = url.toString();
+            } catch (e) {
+                console.error('URL construction failed, falling back to simple reload', e);
+                const separator = window.location.href.includes('?') ? '&' : '?';
+                window.location.href = window.location.href.split('#')[0] + separator + 'lang=' + lang + '&t=' + new Date().getTime() + (window.location.hash || '');
+            }
         };
     </script>
     <?php wp_head(); ?>
 </head>
 <?php
 $is_rtl_manual = false; // Default to English (LTR)
-if (isset($_COOKIE['tareeq_lang'])) {
+
+// 1. Check URL parameter (highest priority)
+if (isset($_GET['lang'])) {
+    $is_rtl_manual = ($_GET['lang'] === 'ar');
+} 
+// 2. Check Cookie
+else if (isset($_COOKIE['tareeq_lang'])) {
     $is_rtl_manual = ($_COOKIE['tareeq_lang'] === 'ar');
 }
 ?>

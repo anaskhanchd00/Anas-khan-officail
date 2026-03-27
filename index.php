@@ -3,8 +3,18 @@
 <?php
 // Robust language detection
 $lang = 'en'; // Default to English
-if (isset($_COOKIE['tareeq_lang'])) {
+
+// 1. Check URL parameter (highest priority for immediate feedback)
+if (isset($_GET['lang'])) {
+    $lang = ($_GET['lang'] === 'ar') ? 'ar' : 'en';
+} 
+// 2. Check Cookie
+else if (isset($_COOKIE['tareeq_lang'])) {
     $lang = ($_COOKIE['tareeq_lang'] === 'ar') ? 'ar' : 'en';
+}
+// 3. Fallback to default
+else {
+    $lang = 'en';
 }
 
 $is_rtl = ($lang === 'ar');
@@ -80,8 +90,8 @@ $t = array(
             'subtitle' => __('We provide professional moving and packing services across all major cities in the United Arab Emirates.', 'rifaq-movers'),
             'available' => __('Full Service Available', 'rifaq-movers'),
             'cities' => array(
-                array("name" => "Dubai", "icon" => "🏙️", "image" => "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2070&auto=format&fit=crop"),
-                array("name" => "Abu Dhabi", "icon" => "🏛️", "image" => "https://images.unsplash.com/photo-1583473848882-f9a5bc7fd2ee?q=80&w=2070&auto=format&fit=crop"),
+                array("name" => "Dubai", "icon" => "🏙️", "image" => "https://images.unsplash.com/photo-1518684079-3c830dcef090?q=80&w=2070&auto=format&fit=crop"),
+                array("name" => "Abu Dhabi", "icon" => "🏛️", "image" => "https://images.unsplash.com/photo-1544161513-0179fe746fd5?q=80&w=2070&auto=format&fit=crop"),
                 array("name" => "Sharjah", "icon" => "🌆", "image" => "https://images.unsplash.com/photo-1578895101408-1a36b834405b?q=80&w=1000&auto=format&fit=crop"),
                 array("name" => "Ajman", "icon" => "🏘️", "image" => "https://images.unsplash.com/photo-1582650625119-3a31f8fa2699?q=80&w=1000&auto=format&fit=crop"),
                 array("name" => "Ras Al Khaimah", "icon" => "⛰️", "image" => "https://images.unsplash.com/photo-1597659840241-37e2b9c2f55f?q=80&w=1000&auto=format&fit=crop"),
@@ -137,7 +147,7 @@ $t = array(
         ),
         'urgent' => array(
             'title' => __('Urgent Moving Request?', 'rifaq-movers'),
-            'subtitle' => __('We are available 24/7 for emergency moving services across the UAE.', 'rifaq-movers'),
+            'subtitle' => __('We are available 24/7 across all Emirates in the UAE including Dubai, Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, and Fujairah.', 'rifaq-movers'),
             'call' => __('Call Now: 0528102191', 'rifaq-movers'),
         )
     ),
@@ -379,7 +389,7 @@ $current = $t[$lang];
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <div class="relative <?php echo $is_rtl ? 'order-2' : 'order-1'; ?> animate-fade-in-right">
                     <img 
-                        src="https://images.unsplash.com/photo-1580674285054-bed31e145f59?q=80&w=2070&auto=format&fit=crop" 
+                        src="https://images.unsplash.com/photo-1586769852836-bc069f19e1b6?q=80&w=2070&auto=format&fit=crop" 
                         alt="Movers and Packers Abu Dhabi" 
                         class="rounded-2xl shadow-2xl w-full h-[400px] object-cover"
                         referrerpolicy="no-referrer"

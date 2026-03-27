@@ -29,25 +29,43 @@ add_action('after_setup_theme', 'rifaq_movers_setup');
 function rifaq_movers_handle_language_switch() {
     if (isset($_GET['lang'])) {
         $lang = sanitize_text_field($_GET['lang']);
-        // Set cookie with both PHP and JS-friendly settings
-        setcookie('tareeq_lang', $lang, time() + (86400 * 30), "/");
         
-        // Redirect to the same page without the lang parameter
-        $redirect_url = remove_query_arg('lang');
-        wp_redirect($redirect_url);
-        exit;
-    }
-}
-add_action('template_redirect', 'rifaq_movers_handle_language_switch');
-
-function rifaq_movers_set_locale($locale) {
-    if (isset($_COOKIE['tareeq_lang'])) {
-        if ($_COOKIE['tareeq_lang'] == 'ar') {
-            return 'ar';
+        // Set cookie with robust settings
+        if (version_compare(PHP_VERSION, '7.3.0', '>=')) {
+            setcookie('tareeq_lang', $lang, [
+                'expires' => time() + (86400 * 30),
+                'path' => '/',
+                'samesite' => 'Lax',
+                'secure' => is_ssl(),
+            ]);
         } else {
-            return 'en_US';
+            setcookie('tareeq_lang', $lang, time() + (86400 * 30), "/; SameSite=Lax" . (is_ssl() ? "; Secure" : ""));
+        }
+        
+        // Update superglobal for current request
+        $_COOKIE['tareeq_lang'] = $lang;
+        
+        // Only redirect if there's no timestamp parameter (t), to allow cache-busting reloads to work
+        if (!isset($_GET['t'])) {
+            $redirect_url = remove_query_arg('lang');
+            wp_redirect($redirect_url);
+            exit;
         }
     }
+}
+add_action('init', 'rifaq_movers_handle_language_switch');
+
+function rifaq_movers_set_locale($locale) {
+    // Check URL parameter first for immediate feedback
+    if (isset($_GET['lang'])) {
+        return ($_GET['lang'] === 'ar') ? 'ar' : 'en_US';
+    }
+    
+    // Then check cookie
+    if (isset($_COOKIE['tareeq_lang'])) {
+        return ($_COOKIE['tareeq_lang'] === 'ar') ? 'ar' : 'en_US';
+    }
+    
     return 'en_US'; // Default to English
 }
 add_filter('locale', 'rifaq_movers_set_locale');
