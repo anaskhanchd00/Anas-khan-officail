@@ -1,9 +1,19 @@
-<?php get_header(); ?>
-
 <?php
 $is_rtl = is_rtl();
 $lang = $is_rtl ? 'ar' : 'en';
 
+// Robust language detection as fallback
+if (isset($_GET['lang'])) {
+    $lang = ($_GET['lang'] == 'ar') ? 'ar' : 'en';
+    $is_rtl = ($lang == 'ar');
+} elseif (isset($_COOKIE['rifaq_lang'])) {
+    $lang = ($_COOKIE['rifaq_lang'] == 'ar') ? 'ar' : 'en';
+    $is_rtl = ($lang == 'ar');
+}
+
+get_header(); ?>
+
+<?php
 // Translations Data (Simplified version of React 't' object)
 $t = array(
     'en' => array(

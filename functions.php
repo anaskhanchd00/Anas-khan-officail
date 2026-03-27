@@ -37,16 +37,39 @@ function rifaq_movers_handle_language_switch() {
 add_action('init', 'rifaq_movers_handle_language_switch');
 
 function rifaq_movers_set_locale($locale) {
-    if (isset($_COOKIE['rifaq_lang'])) {
-        if ($_COOKIE['rifaq_lang'] == 'ar') {
-            return 'ar';
-        } else {
-            return 'en_US';
-        }
+    $lang = isset($_GET['lang']) ? sanitize_text_field($_GET['lang']) : (isset($_COOKIE['rifaq_lang']) ? sanitize_text_field($_COOKIE['rifaq_lang']) : '');
+    if ($lang == 'ar') {
+        return 'ar';
+    } elseif ($lang == 'en') {
+        return 'en_US';
     }
     return $locale;
 }
 add_filter('locale', 'rifaq_movers_set_locale');
+
+/**
+ * Force RTL direction when Arabic is selected
+ */
+function rifaq_movers_force_rtl($is_rtl) {
+    $lang = isset($_GET['lang']) ? sanitize_text_field($_GET['lang']) : (isset($_COOKIE['rifaq_lang']) ? sanitize_text_field($_COOKIE['rifaq_lang']) : '');
+    if ($lang == 'ar') {
+        return true;
+    }
+    return $is_rtl;
+}
+add_filter('is_rtl', 'rifaq_movers_force_rtl');
+
+/**
+ * Ensure the global locale object is updated
+ */
+function rifaq_movers_update_locale_object() {
+    global $wp_locale;
+    $lang = isset($_GET['lang']) ? sanitize_text_field($_GET['lang']) : (isset($_COOKIE['rifaq_lang']) ? sanitize_text_field($_COOKIE['rifaq_lang']) : '');
+    if ($lang == 'ar') {
+        $wp_locale->text_direction = 'rtl';
+    }
+}
+add_action('after_setup_theme', 'rifaq_movers_update_locale_object');
 
 function rifaq_movers_scripts() {
     // Enqueue Tailwind CSS via CDN (Script, not Style)
