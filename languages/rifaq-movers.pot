@@ -1,0 +1,355 @@
+# Copyright (C) 2026 Rifaq Movers
+# This file is distributed under the same license as the Rifaq Movers Theme.
+msgid ""
+msgstr ""
+"Project-Id-Version: Rifaq Movers 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/rifaq-movers\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-03-27 07:05:00+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.8.1\n"
+"X-Domain: rifaq-movers\n"
+
+#: functions.php:17
+msgid "Primary Menu"
+msgstr ""
+
+#: header.php:23
+msgid "TAREEQ SAREE MOVERS"
+msgstr ""
+
+#: header.php:31
+msgid "Home"
+msgstr ""
+
+#: header.php:32
+msgid "Services"
+msgstr ""
+
+#: header.php:33
+msgid "About"
+msgstr ""
+
+#: header.php:34
+msgid "Service Area"
+msgstr ""
+
+#: header.php:35
+msgid "Testimonials"
+msgstr ""
+
+#: header.php:36
+msgid "Contact"
+msgstr ""
+
+#: footer.php:13
+msgid "TAREEQ SAREE MOVERS PACKERS FURNITURE TRANSFER L.L.C provides premium moving and storage solutions across the UAE since 2012."
+msgstr ""
+
+#: footer.php:23
+msgid "Quick Links"
+msgstr ""
+
+#: footer.php:47
+msgid "Our Services"
+msgstr ""
+
+#: footer.php:57
+msgid "Residential Moving"
+msgstr ""
+
+#: footer.php:58
+msgid "Villa & Apartment Moving"
+msgstr ""
+
+#: footer.php:59
+msgid "Commercial Moving"
+msgstr ""
+
+#: footer.php:60
+msgid "Packing Services"
+msgstr ""
+
+#: footer.php:61
+msgid "Storage Solutions"
+msgstr ""
+
+#: footer.php:69
+msgid "Newsletter"
+msgstr ""
+
+#: footer.php:70
+msgid "Subscribe to get the latest news and moving tips."
+msgstr ""
+
+#: footer.php:72
+msgid "Email Address"
+msgstr ""
+
+#: footer.php:73
+msgid "Subscribe"
+msgstr ""
+
+#: footer.php:78
+msgid "All rights reserved."
+msgstr ""
+
+#: footer.php:87
+msgid "Call Now: 0528102191"
+msgstr ""
+
+#: footer.php:96
+msgid "CALL NOW"
+msgstr ""
+
+#: index.php:11
+msgid "Your Trusted Partner in"
+msgstr ""
+
+#: index.php:12
+msgid "Seamless Relocation"
+msgstr ""
+
+#: index.php:13
+msgid "TAREEQ SAREE MOVERS PACKERS FURNITURE TRANSFER L.L.C provides professional, reliable, and efficient moving services across the UAE."
+msgstr ""
+
+#: index.php:15
+msgid "Call Now 0528102191"
+msgstr ""
+
+#: index.php:16
+msgid "All Emirates - Dubai, Abu Dhabi, Sharjah & More"
+msgstr ""
+
+#: index.php:19
+msgid "Our Professional Services"
+msgstr ""
+
+#: index.php:20
+msgid "We offer a comprehensive range of moving and storage solutions designed to make your transition as smooth as possible."
+msgstr ""
+
+#: index.php:21
+msgid "Learn More"
+msgstr ""
+
+#: index.php:23
+msgid "Stress-free home relocation services tailored to your needs, ensuring your belongings reach safely."
+msgstr ""
+
+#: index.php:24
+msgid "Expert relocation services for villas and apartments, ensuring a smooth transition to your new home."
+msgstr ""
+
+#: index.php:25
+msgid "Efficient office and business relocation to minimize downtime and ensure business continuity."
+msgstr ""
+
+#: index.php:26
+msgid "Professional packing using high-quality materials to protect your items during transit."
+msgstr ""
+
+#: index.php:27
+msgid "Secure, climate-controlled storage facilities for short-term or long-term requirements."
+msgstr ""
+
+#: index.php:28
+msgid "Expert assembly and disassembly of all types of furniture for a complete moving experience."
+msgstr ""
+
+#: index.php:28
+msgid "Furniture Assembly"
+msgstr ""
+
+#: index.php:32
+msgid "Years Experience"
+msgstr ""
+
+#: index.php:33
+msgid "Happy Clients"
+msgstr ""
+
+#: index.php:34
+msgid "Professional Team"
+msgstr ""
+
+#: index.php:35
+msgid "Satisfaction"
+msgstr ""
+
+#: index.php:38
+msgid "Why Choose TAREEQ SAREE MOVERS?"
+msgstr ""
+
+#: index.php:39
+msgid "With over a decade of experience in the UAE, we have perfected the art of relocation. TAREEQ SAREE MOVERS PACKERS FURNITURE TRANSFER L.L.C is trained to handle everything from delicate antiques to large office equipment with the utmost care."
+msgstr ""
+
+#: index.php:41
+msgid "Fully insured moving services"
+msgstr ""
+
+#: index.php:42
+msgid "Professional and trained packing team"
+msgstr ""
+
+#: index.php:43
+msgid "Modern fleet of GPS-tracked vehicles"
+msgstr ""
+
+#: index.php:44
+msgid "Transparent pricing with no hidden costs"
+msgstr ""
+
+#: index.php:46
+msgid "Learn More About Us"
+msgstr ""
+
+#: index.php:47
+msgid "Customer Rating"
+msgstr ""
+
+#: index.php:50
+msgid "Coverage Across UAE"
+msgstr ""
+
+#: index.php:51
+msgid "We serve all emirates across UAE with comprehensive coverage"
+msgstr ""
+
+#: index.php:52
+msgid "Professional service available"
+msgstr ""
+
+#: index.php:54
+msgid "Dubai"
+msgstr ""
+
+#: index.php:55
+msgid "Abu Dhabi"
+msgstr ""
+
+#: index.php:56
+msgid "Sharjah"
+msgstr ""
+
+#: index.php:57
+msgid "Ajman"
+msgstr ""
+
+#: index.php:58
+msgid "Ras Al Khaimah"
+msgstr ""
+
+#: index.php:59
+msgid "Fujairah"
+msgstr ""
+
+#: index.php:63
+msgid "What Our Clients Say"
+msgstr ""
+
+#: index.php:64
+msgid "Don't just take our word for it. Here's what our customers have to say about their experience with SwiftMovers."
+msgstr ""
+
+#: index.php:66
+msgid "Sarah Johnson"
+msgstr ""
+
+#: index.php:66
+msgid "Home Owner"
+msgstr ""
+
+#: index.php:66
+msgid "Swift Movers made my relocation so easy. Their team was professional, punctual, and handled everything with care."
+msgstr ""
+
+#: index.php:67
+msgid "Ahmed Al-Fayed"
+msgstr ""
+
+#: index.php:67
+msgid "Business Manager"
+msgstr ""
+
+#: index.php:67
+msgid "We moved our entire office over the weekend with zero issues. Highly recommend their commercial services."
+msgstr ""
+
+#: index.php:68
+msgid "Michael Chen"
+msgstr ""
+
+#: index.php:68
+msgid "Villa Owner"
+msgstr ""
+
+#: index.php:68
+msgid "Moving my villa was stressful, but TAREEQ SAREE MOVERS handled everything perfectly and with great care."
+msgstr ""
+
+#: index.php:72
+msgid "Get a Free Quote"
+msgstr ""
+
+#: index.php:73
+msgid "Planning a move? Fill out the form below and our team will get back to you with a customized quote within 24 hours."
+msgstr ""
+
+#: index.php:74
+msgid "Call Us"
+msgstr ""
+
+#: index.php:75
+msgid "Email Us"
+msgstr ""
+
+#: index.php:76
+msgid "Our Office"
+msgstr ""
+
+#: index.php:77
+msgid "Business Bay, Dubai, UAE"
+msgstr ""
+
+#: index.php:79
+msgid "Full Name"
+msgstr ""
+
+#: index.php:80
+msgid "Phone Number"
+msgstr ""
+
+#: index.php:82
+msgid "Service Type"
+msgstr ""
+
+#: index.php:83
+msgid "-- Select Service --"
+msgstr ""
+
+#: index.php:84
+msgid "Message (Optional)"
+msgstr ""
+
+#: index.php:85
+msgid "Send Request"
+msgstr ""
+
+#: index.php:86
+msgid "Message sent! We'll contact you soon."
+msgstr ""
+
+#: index.php:90
+msgid "Urgent Moving Request?"
+msgstr ""
+
+#: index.php:91
+msgid "We are available 24/7 across all Emirates in the UAE including Dubai, Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, and Fujairah."
+msgstr ""

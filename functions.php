@@ -6,18 +6,47 @@
 /**
  * Recommended Plugins:
  * 1. WP Mail SMTP - For reliable email delivery from the contact form.
- * 2. Advanced Custom Fields (Optional) - If you want to make content editable via admin.
- * 3. Loco Translate (Optional) - For managing translations easily.
+ * 2. Polylang - For easy English/Arabic translation management.
+ * 3. Loco Translate - For translating theme strings directly in the dashboard.
  */
 
 function rifaq_movers_setup() {
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
+    
+    // Load theme textdomain for translations
+    load_theme_textdomain('rifaq-movers', get_template_directory() . '/languages');
+
     register_nav_menus(array(
         'primary' => __('Primary Menu', 'rifaq-movers'),
     ));
 }
 add_action('after_setup_theme', 'rifaq_movers_setup');
+
+/**
+ * Simple Language Switcher Logic (if Polylang is not used)
+ */
+function rifaq_movers_handle_language_switch() {
+    if (isset($_GET['lang'])) {
+        $lang = sanitize_text_field($_GET['lang']);
+        setcookie('rifaq_lang', $lang, time() + (86400 * 30), "/");
+        wp_redirect(remove_query_arg('lang'));
+        exit;
+    }
+}
+add_action('init', 'rifaq_movers_handle_language_switch');
+
+function rifaq_movers_set_locale($locale) {
+    if (isset($_COOKIE['rifaq_lang'])) {
+        if ($_COOKIE['rifaq_lang'] == 'ar') {
+            return 'ar';
+        } else {
+            return 'en_US';
+        }
+    }
+    return $locale;
+}
+add_filter('locale', 'rifaq_movers_set_locale');
 
 function rifaq_movers_scripts() {
     // Enqueue Tailwind CSS via CDN (Script, not Style)
