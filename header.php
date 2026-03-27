@@ -8,10 +8,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <script>
         window.switchLanguage = function(lang) {
-            document.cookie = 'tareeq_lang=' + lang + '; path=/; max-age=' + (86400 * 30);
             const url = new URL(window.location.href);
-            url.searchParams.delete('lang');
-            window.location.href = url.pathname + url.search;
+            url.searchParams.set('lang', lang);
+            window.location.href = url.toString();
         };
     </script>
     <?php wp_head(); ?>

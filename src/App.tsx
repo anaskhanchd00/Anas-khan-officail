@@ -95,7 +95,7 @@ const App: React.FC = () => {
         subtitle: "We serve all emirates across UAE with comprehensive coverage",
         items: [
           { city: "Dubai", desc: "Professional service available", icon: "🏙️", image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2070&auto=format&fit=crop" },
-          { city: "Abu Dhabi", desc: "Professional service available", icon: "🏛️", image: "https://images.unsplash.com/photo-1586769852836-bc069f19e1b6?q=80&w=2070&auto=format&fit=crop" },
+          { city: "Abu Dhabi", desc: "Professional service available", icon: "🏛️", image: "https://images.unsplash.com/photo-1583473848882-f9a5bc7fd2ee?q=80&w=2070&auto=format&fit=crop" },
           { city: "Sharjah", desc: "Professional service available", icon: "🌆", image: "https://images.unsplash.com/photo-1578895101408-1a36b834405b?q=80&w=1000&auto=format&fit=crop" },
           { city: "Ajman", desc: "Professional service available", icon: "🏘️", image: "https://images.unsplash.com/photo-1582650625119-3a31f8fa2699?q=80&w=1000&auto=format&fit=crop" },
           { city: "Ras Al Khaimah", desc: "Professional service available", icon: "⛰️", image: "https://images.unsplash.com/photo-1597659840241-37e2b9c2f55f?q=80&w=1000&auto=format&fit=crop" },
@@ -213,7 +213,7 @@ const App: React.FC = () => {
         subtitle: "نحن نخدم جميع الإمارات في جميع أنحاء الدولة بتغطية شاملة",
         items: [
           { city: "دبي", desc: "خدمة احترافية متوفرة", icon: "🏙️", image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2070&auto=format&fit=crop" },
-          { city: "أبو ظبي", desc: "خدمة احترافية متوفرة", icon: "🏛️", image: "https://images.unsplash.com/photo-1586769852836-bc069f19e1b6?q=80&w=2070&auto=format&fit=crop" },
+          { city: "أبو ظبي", desc: "خدمة احترافية متوفرة", icon: "🏛️", image: "https://images.unsplash.com/photo-1583473848882-f9a5bc7fd2ee?q=80&w=2070&auto=format&fit=crop" },
           { city: "الشارقة", desc: "خدمة احترافية متوفرة", icon: "🌆", image: "https://images.unsplash.com/photo-1578895101408-1a36b834405b?q=80&w=1000&auto=format&fit=crop" },
           { city: "عجمان", desc: "خدمة احترافية متوفرة", icon: "🏘️", image: "https://images.unsplash.com/photo-1582650625119-3a31f8fa2699?q=80&w=1000&auto=format&fit=crop" },
           { city: "رأس الخيمة", desc: "خدمة احترافية متوفرة", icon: "⛰️", image: "https://images.unsplash.com/photo-1597659840241-37e2b9c2f55f?q=80&w=1000&auto=format&fit=crop" },

@@ -83,7 +83,7 @@ $t = array(
             'available' => __('Full Service Available', 'rifaq-movers'),
             'cities' => array(
                 array("name" => "Dubai", "icon" => "🏙️", "image" => "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2070&auto=format&fit=crop"),
-                array("name" => "Abu Dhabi", "icon" => "🏛️", "image" => "https://images.unsplash.com/photo-1586769852836-bc069f19e1b6?q=80&w=2070&auto=format&fit=crop"),
+                array("name" => "Abu Dhabi", "icon" => "🏛️", "image" => "https://images.unsplash.com/photo-1583473848882-f9a5bc7fd2ee?q=80&w=2070&auto=format&fit=crop"),
                 array("name" => "Sharjah", "icon" => "🌆", "image" => "https://images.unsplash.com/photo-1578895101408-1a36b834405b?q=80&w=1000&auto=format&fit=crop"),
                 array("name" => "Ajman", "icon" => "🏘️", "image" => "https://images.unsplash.com/photo-1582650625119-3a31f8fa2699?q=80&w=1000&auto=format&fit=crop"),
                 array("name" => "Ras Al Khaimah", "icon" => "⛰️", "image" => "https://images.unsplash.com/photo-1597659840241-37e2b9c2f55f?q=80&w=1000&auto=format&fit=crop"),
@@ -213,7 +213,7 @@ $t = array(
             'available' => __('خدمة كاملة متاحة', 'rifaq-movers'),
             'cities' => array(
                 array("name" => "دبي", "icon" => "🏙️", "image" => "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2070&auto=format&fit=crop"),
-                array("name" => "أبو ظبي", "icon" => "🏛️", "image" => "https://images.unsplash.com/photo-1586769852836-bc069f19e1b6?q=80&w=2070&auto=format&fit=crop"),
+                array("name" => "أبو ظبي", "icon" => "🏛️", "image" => "https://images.unsplash.com/photo-1583473848882-f9a5bc7fd2ee?q=80&w=2070&auto=format&fit=crop"),
                 array("name" => "الشارقة", "icon" => "🌆", "image" => "https://images.unsplash.com/photo-1578895101408-1a36b834405b?q=80&w=1000&auto=format&fit=crop"),
                 array("name" => "عجمان", "icon" => "🏘️", "image" => "https://images.unsplash.com/photo-1582650625119-3a31f8fa2699?q=80&w=1000&auto=format&fit=crop"),
                 array("name" => "رأس الخيمة", "icon" => "⛰️", "image" => "https://images.unsplash.com/photo-1597659840241-37e2b9c2f55f?q=80&w=1000&auto=format&fit=crop"),
